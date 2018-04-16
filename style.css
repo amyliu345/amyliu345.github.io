@@ -1,0 +1,21 @@
+
+.grid-container{
+	display: grid;
+	grid-template-columns: 30vw 70vw;
+	grid-template-rows: 10vh 90vh;
+	grid-template-areas: 
+		'header header'
+		'leftCol rightCol';
+}
+
+.header-item{
+	grid-area: header;
+}
+
+.left-col{
+	grid-area: leftCol;
+}
+
+.right-col{
+	grid-area: rightCol;
+}
