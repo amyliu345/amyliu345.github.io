@@ -2,17 +2,37 @@
 <html>
 <head>
 	<title>
-		
+
 	</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="restrictions.js"></script>
+	<script src="restaurants.js"></script>
+	<script style="text/javascript">
+		function onload(){
+			loadFilters();
+			loadRestaurants();
+		}
+	</script>
 </head>
-<body>
+<body onload="onload()">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
+
 		</div>
 		<div class = 'left-col'>
+			<img class="map_to_resturant" src="Resources/placeholder_map" alt="map"/>
+			<h3> Filters </h3>
+			<div class="filter_list" id="filters"></div>
+			Dietary Restrictions
+			<form id="dietaryRestrictionFilters">
+			</form>
+			Meal
+			<form id="mealRestrictionFilters">
+			</form>
 		</div>
 		<div class = 'right-col'>
+			<div id="restaurantList">
+			</div>
 		</div>
 	</div>
 </body>
