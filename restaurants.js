@@ -3,20 +3,23 @@ The image displayed with the restaurant is its index +".png". For example
 Green Garden's image would be 2.png
 **/
 restaurants=[
-    {name:"Tom's Bistro",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0},
-    {name:"Veggie Place",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:1},
-    {name:"Green Garden",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0},
-    {name:"Life Alive",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0},
-    {name:"Santiago's Kitchen",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:1},
-    {name:"Steak House",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:100},
-    {name:"Seafood Palace",rating:4,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:2}
+    {name:"Tom's Bistro",rating:4,vrating:3,cost:1,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0,mealLevel:1},
+    {name:"Veggie Place",rating:2,vrating:1,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:1,mealLevel:2},
+    {name:"Green Garden",rating:3,vrating:2,cost:4,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0,mealLevel:3},
+    {name:"Life Alive",rating:1,vrating:5,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:0,mealLevel:4},
+    {name:"Santiago's Kitchen",rating:5,vrating:3,cost:3,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:1,mealLevel:5},
+    {name:"Steak House",rating:2,vrating:4,cost:1,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:100,mealLevel:6},
+    {name:"Seafood Palace",rating:3,vrating:2,cost:2,street:"683 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-235-7126",restrictionLevel:2,mealLevel:7},
+    {name:"Fresh Fish",rating:3,vrating:2,cost:2,street:"283 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-237-7126",restrictionLevel:2,mealLevel:0}
 ]
 
 
 function loadRestaurants(){
     var list=document.getElementById("restaurantList");
     for(var i=0;i<restaurants.length;i++){
+        restaurants[i].id="restaurant"+i;
         var restaurant=document.createElement("div");
+        restaurant.setAttribute("id",restaurants[i].id);
         restaurant.setAttribute("data-index",i);
         restaurant.classList.add("restaurant-item");
         var title=document.createElement("div");
@@ -64,7 +67,7 @@ function createRatingDiv(rating,normal){
     }
     for(;i<5;i++){
         var img=document.createElement("img");
-        var label="half-"+type;
+        var label="empty-"+type;
         img.src="Resources/"+label+".png";
         img.classList.add("rating");
         img.classList.add(label);

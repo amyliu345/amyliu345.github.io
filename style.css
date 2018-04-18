@@ -1,4 +1,15 @@
-
+body{
+	padding: 10px;
+}
+.restaurant-item.hidden{
+	display: none;
+}
+.restaurant .hidden{
+	display: none;
+}
+.restaurant,.hidden{
+	display: none;
+}
 .grid-container{
 	display: grid;
 	grid-template-columns: 30vw 70vw;
@@ -18,6 +29,17 @@
 
 .right-col{
 	grid-area: rightCol;
+}
+.filter{
+	border-top: 5px;
+	border-bottom: 5px;
+	border-right: 17px;
+	border-left: 17px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+button.active-filter{
+	background-color: blue;
 }
 
 .map_to_resturant{
