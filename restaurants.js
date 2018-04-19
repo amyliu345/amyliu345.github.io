@@ -25,30 +25,36 @@ function loadRestaurants(){
         title.classList.add("title");
         title.innerHTML=restaurants[i].name;
         restaurant.appendChild(title);
+        var image = document.createElement('div');
+        image.setAttribute('id', 'imageContainer');
+        restaurant.appendChild(image);
         var img=document.createElement("img");
         img.src='graphics/' + i + ".png";
         img.classList.add("image");
-        restaurant.appendChild(img);
+        image.appendChild(img);
         restaurant.appendChild(createRatingDiv(restaurants[i].rating, restaurants[i].vrating));
         // restaurant.appendChild(createRatingDiv(restaurants[i].vrating,false));
 
         var costValue="";
         for(var n=0;n<restaurants[i].cost;n++)
             costValue+="$";
-        restaurant.appendChild(createDiv("cost",costValue));
+        var restaurantDetails = document.createElement('div');
+        restaurantDetails.setAttribute('id', 'restaurantDetails');
+        restaurant.appendChild(restaurantDetails);
+        restaurantDetails.appendChild(createDiv("cost", costValue));
 
-        restaurant.appendChild(createDiv("street",restaurants[i].street));
+        restaurantDetails.appendChild(createDiv("street", restaurants[i].street));
 
-        restaurant.appendChild(createDiv("city",restaurants[i].city));
+        restaurantDetails.appendChild(createDiv("city", restaurants[i].city));
 
-        restaurant.appendChild(createDiv("phone-number",restaurants[i].number));
+        restaurantDetails.appendChild(createDiv("phone-number", restaurants[i].number));
         list.appendChild(restaurant);
     }
 }
 function createDiv(className, innerHTML){
     var e = document.createElement("div");
     e.classList.add(className);
-    e.innerHTML=innerHTML;
+    e.innerHTML = innerHTML;
     return e;
 }
 // function createRatingDiv(rating,normal){
@@ -96,7 +102,6 @@ function createRatingDiv(rating, vrating){
     container.appendChild(starRating);
     var vegRating = document.createElement('div');
     vegRating.classList.add('vegRating');
-    console.log(vrating);
     for(var i = 0;i<vrating;i++){
         console.log('ya');
         type = 'carrot';
