@@ -7,9 +7,46 @@ body{
 }
 
 .logo {
-	padding: 30px 0px 0px 20px;
+	margin: 30px 0px 0px 20px;
 	width: 200px;
+	height: 70px;
 }
+
+.search-bar{
+	margin: 50px 0px 0px 130px; 
+	width: 100%;
+	position: relative;
+}
+
+.search-term {
+  float: left;
+  width: 70%;
+  border: 3px solid #ffffff;
+  padding: 10px;
+  height: 35px;
+  border-radius: 5px 0px 0px 5px;
+  outline: none;
+  color: #000000;
+  font-size: 18px;
+}
+
+.search-button {
+  margin-left: -2px;
+  width: 40px;
+  height: 35px;
+  border: 1px solid #ffffff;
+  text-align: center;
+  background-color: #61a064;
+  border-radius: 0px 5px 5px 0px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+#searchIcon {
+	padding-top: 5px;
+	width: 20px;
+}
+
 .restaurant-item.hidden{
 	display: none;
 }
@@ -30,8 +67,10 @@ body{
 
 .header-item{
 	grid-area: header;
-	background: linear-gradient(#61a064, #b3d18a)
-}
+	display:flex;
+	background: linear-gradient(#5b915e, #b3d18a)
+/*	background: linear-gradient(#61a064, #b3d18a)
+*/}
 
 .left-col{
 	grid-area: leftCol;
