@@ -28,19 +28,29 @@
 
 		<div class = 'left-col'>
 			<img class="map_to_resturant" src="graphics/placeholder_map.png" alt="map"/>
-			<h3> Filters </h3>
-			<div class="filter_list" id="filters"></div>
-			Dietary Restrictions
-			<form id="dietaryRestrictionFilters">
-			</form>
-			Meal
-			<form id="mealRestrictionFilters">
-			</form>
-			Cost
-			<div id="costRestrictionFilters">
+ 			<div class="filter_list" id="filters"></div>
+			<div id = 'dietaryRestrictions'>
+				<span class = 'filterTitle'> Dietary Restrictions </span>
+				<form id="dietaryRestrictionFilters">
+				</form>
 			</div>
-			Avg. Customer Review
-			<div id="ratingRestrictionFilters">
+
+			<div id = 'mealType'>
+				<span class = 'filterTitle'> Meal </span>
+				<form id="mealRestrictionFilters">
+				</form>
+			</div>
+
+			<div id = 'costFilter'>
+				<span class = 'filterTitle' > Cost </span>
+				<div id="costRestrictionFilters">
+				</div>
+			</div>
+
+			<div id = 'reviewFilter'>
+				<span class = 'filterTitle'> Avg. Customer Review </span>
+				<div id="ratingRestrictionFilters">
+				</div>
 			</div>
 
 		</div>
