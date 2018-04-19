@@ -3,7 +3,12 @@
 }
 
 body{
-	padding: 10px;
+	margin: 0px;
+}
+
+.logo {
+	padding: 30px 0px 0px 20px;
+	width: 200px;
 }
 .restaurant-item.hidden{
 	display: none;
@@ -25,6 +30,7 @@ body{
 
 .header-item{
 	grid-area: header;
+	background: linear-gradient(#61a064, #b3d18a)
 }
 
 .left-col{
