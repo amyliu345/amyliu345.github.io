@@ -17,8 +17,15 @@
 <body onload="onload()">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
-			<img class="logo" src="Resources/vegeTables.png"/>
+			<img class="logo" src="graphics/vegeTables.png"/>
+			<div class="search-bar">
+  				<input type="search" class="search-term" name="q" placeholder="Find restaurants nearby">
+  				<button type="submit" class="search-button">
+    				<img id="searchIcon" src="graphics/search-icon.png"/>
+ 				</button>
+			 </div>
 		</div>
+
 		<div class = 'left-col'>
 			<img class="map_to_resturant" src="graphics/placeholder_map.png" alt="map"/>
  			<div class="filter_list" id="filters"></div>
