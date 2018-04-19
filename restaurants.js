@@ -13,7 +13,6 @@ restaurants=[
     {name:"Fresh Fish",rating:3,vrating:2,cost:2,street:"283 Massachusetts Ave",city:"Cambridge, Ma 02139",number:"(617)-237-7126",restrictionLevel:2,mealLevel:0}
 ]
 
-
 function loadRestaurants(){
     var list=document.getElementById("restaurantList");
     for(var i=0;i<restaurants.length;i++){
@@ -27,7 +26,7 @@ function loadRestaurants(){
         title.innerHTML=restaurants[i].name;
         restaurant.appendChild(title);
         var img=document.createElement("img");
-        img.src=i+".png";
+        img.src='graphics/' + i + ".png";
         img.classList.add("image");
         restaurant.appendChild(img);
         restaurant.appendChild(createRatingDiv(restaurants[i].rating,true));
@@ -46,31 +45,31 @@ function loadRestaurants(){
         list.appendChild(restaurant);
     }
 }
-function createDiv(clazz,innerHTML){
-    var e=document.createElement("div");
-    e.classList.add(clazz);
+function createDiv(className, innerHTML){
+    var e = document.createElement("div");
+    e.classList.add(className);
     e.innerHTML=innerHTML;
     return e;
 }
 function createRatingDiv(rating,normal){
     var i=0;
     var container=document.createElement("div");
-    type=normal?"star":"carrot";
+    type = normal?"star":"carrot";
     container.classList.add(type+"-rating");
     for(;i<rating;i++){
         var img=document.createElement("img");
         var label="full-"+type;
         img.classList.add(label);
         img.classList.add("rating");
-        img.src="Resources/"+label+".png";
+        img.src = "graphics/"+label+".png";
         container.appendChild(img);
     }
     for(;i<5;i++){
         var img=document.createElement("img");
-        var label="empty-"+type;
-        img.src="Resources/"+label+".png";
-        img.classList.add("rating");
-        img.classList.add(label);
+        // var label="empty-"+type;
+        // img.src = "graphics/"+label+".png";
+        // img.classList.add("rating");
+        // img.classList.add(label);
         container.appendChild(img);
     }
     return container;

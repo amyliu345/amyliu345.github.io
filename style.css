@@ -1,3 +1,7 @@
+*{
+	font-family: arial;
+}
+
 body{
 	padding: 10px;
 }
@@ -39,11 +43,11 @@ body{
 	padding-right: 8px;
 }
 button.active-filter{
-	background-color: blue;
+	background-color: lightblue;
 }
 
 .map_to_resturant{
-	width: 100px;
+	width: 200px;
 	height: 100px;
 }
 .restaurant-item{
@@ -55,8 +59,8 @@ button.active-filter{
 
 }
 .restaurant-item .image{
-	width: 20px;
-	height: 20px;
+	width: 100px;
+	height: 100px;
 	grid-row: 2;
 	grid-column: 1;
 }
@@ -69,8 +73,8 @@ button.active-filter{
 	grid-column: 2;
 }
 .restaurant-item .rating{
-	width: 10px;
-	height: 10px;
+	width: 20px;
+	height: 20px;
 
 }
 .restaurant-item .cost{

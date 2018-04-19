@@ -108,6 +108,7 @@ function loadFilterHelper(restrictions,title,name,callback,filterFunction,toggle
 function applyFilters(){
     restaurants.forEach(filter)
 }
+
 function filter(item){
     var activeFilters=document.getElementsByClassName("active-filter");
 
