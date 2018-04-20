@@ -23,7 +23,7 @@ function loadRestaurants(){
         restaurant.classList.add("restaurant-item");
         var title=document.createElement("div");
         title.classList.add("title");
-        title.innerHTML=restaurants[i].name;
+        title.innerHTML=(i + 1) + '. ' + restaurants[i].name;
         restaurant.appendChild(title);
         var image = document.createElement('div');
         image.setAttribute('id', 'imageContainer');
@@ -85,10 +85,7 @@ function createDiv(className, innerHTML){
 
 // }
 function createRatingDiv(rating, vrating){
-    var i=0;
     var container=document.createElement("div");
-    // type = normal?"star":"carrot";
-    // container.classList.add(type+"-rating");
     container.classList.add("rating");
     var starRating = document.createElement('div');
     starRating.classList.add('starRating');
