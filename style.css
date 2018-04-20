@@ -84,7 +84,9 @@ body{
 
 .right-col{
 	grid-area: rightCol;
-	padding-top: 20px;
+	/*padding-top: 20px;*/
+    display: flex;
+    flex-direction: column;
 }
 
 .filter{
@@ -266,6 +268,7 @@ button.active-filter{
 
 #star-rating img, #carrot-rating img {
     width: 20px;
+    margin-bottom: 5px;
 }
 
 #ratings-details {
@@ -310,4 +313,103 @@ button.active-filter{
 
 #top-review-section {
     margin-left: 20px;
+    font-style: italic;
+}
+
+#reviews-header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 20px;
+}
+
+#reviews-header-title {
+    width: 100%;
+    padding-left: 20px;
+}
+
+#reviews-header-sortby {
+    width: 300px;
+    color: #999999
+}
+
+#reviews-container {
+    overflow-y: scroll;
+    justify-content: flex-start;
+}
+
+.review-entry {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    flex-direction: row;
+}
+
+#review-entry-header {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    padding-bottom: 8px;
+}
+
+#review-title {
+    font-weight: bolder;
+    font-size: 16pt;
+}
+
+#dish-title {
+    margin-left: 30px;
+    color: #555555
+}
+
+#review-entry-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#review-entry-author {
+    font-weight: bolder;
+    border-top: 1px solid #aaaaaa;
+    padding-top: 3px;
+    font-size: 10pt;
+    color: #555555;
+}
+
+#review-entry-date {
+    margin-left: 30px;
+    font-size: 10pt;
+    color: #555555
+}
+
+#review-entry-star-rating {
+	display:flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+#review-entry-star-rating img{
+    width: 25px;
+    margin-bottom: 5px;
+}
+
+#review-body {
+    padding-right: 3%;
+    padding-bottom: 10px;
+}
+
+#review-entry-pro-pic {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#review-entry-pro-pic img {
+    border-radius: 50%;
+    width: 8vw;
+    margin-left: 20px;
+    margin-right: 20px;
 }
