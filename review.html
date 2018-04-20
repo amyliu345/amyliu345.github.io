@@ -5,14 +5,67 @@
 		
 	</title>
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 </head>
 <body>
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
+            <img class="logo" src="graphics/vegeTables.png"/>
+			<div class="search-bar">
+  				<input type="search" class="search-term" name="q" placeholder="Find restaurants nearby">
+  				<button type="submit" class="search-button">
+    				<img id="searchIcon" src="graphics/search-icon.png"/>
+ 				</button>
+			 </div>
 		</div>
 		<div class = 'left-col'>
+            <button id="back-to-search">
+                <a id="arrow">&#x21A9</a> 
+                <a>Back to Search</a>
+            </button>
+            <div id="restaurant-details">
+                <h1 id="restaurant-title">Tom's Bistro</h1>
+                <div id="restaurant-description">
+                    <div id="ratings-details">
+                        <div id="star-rating">
+                            <img class="full-star rating" src="graphics/full-star.png"/>
+                            <img class="full-star rating" src="graphics/full-star.png"/>
+                            <img class="full-star rating" src="graphics/full-star.png"/>
+                            <img class="full-star rating" src="graphics/full-star.png"/>
+                        </div>
+                        <div id="carrot-rating">
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                        </div>
+                    </div>
+                    <div id="address-contact-info">
+                        <a id="street-address">683 Massachusetts Ave.</a>
+                        <a id="city-state">Cambridge, MA 02139</a>
+                        <a id="phone-number">(617) 238-7926</a>
+                    </div>
+                </div>
+                <div id="restaurant-location">
+                    <img id="restaurant-location-img" src="graphics/placeholder_map.png">
+                </div>
+                <div id="restaurant-hours">
+                    <a id="restaurant-hours">Hours: 8am - 11pm Today</a>
+                </div>
+            </div>
+            <button id="menu-select">Menu</button>
+            <button id="reviews-select">Reviews</button>
+            <div id="top-review-section">
+                <div id="top-review-header">
+                    <h2>Top Review for You:</h2>
+                </div>
+                <div id="top-review">
+                    <a>"I absolutely adore Tom's Bistro!! Their soups are to DIE for!!! Highly recommended for any vegans out there :)" ~Rachel</a>
+                </div>
+            </div>
 		</div>
 		<div class = 'right-col'>
+            
 		</div>
 	</div>
 </body>
