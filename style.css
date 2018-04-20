@@ -175,6 +175,7 @@ body{
 button.active-filter{
 	background-color: lightblue;
 	border-radius: 5px;
+	outline: none;
 }
 
 .map_to_resturant{
