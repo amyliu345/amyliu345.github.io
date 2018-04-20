@@ -25,53 +25,103 @@ function loadRestaurants(){
         title.classList.add("title");
         title.innerHTML=restaurants[i].name;
         restaurant.appendChild(title);
+        var image = document.createElement('div');
+        image.setAttribute('id', 'imageContainer');
+        restaurant.appendChild(image);
         var img=document.createElement("img");
         img.src='graphics/' + i + ".png";
         img.classList.add("image");
-        restaurant.appendChild(img);
-        restaurant.appendChild(createRatingDiv(restaurants[i].rating,true));
-        restaurant.appendChild(createRatingDiv(restaurants[i].vrating,false));
+        image.appendChild(img);
+        restaurant.appendChild(createRatingDiv(restaurants[i].rating, restaurants[i].vrating));
+        // restaurant.appendChild(createRatingDiv(restaurants[i].vrating,false));
 
         var costValue="";
         for(var n=0;n<restaurants[i].cost;n++)
             costValue+="$";
-        restaurant.appendChild(createDiv("cost",costValue));
+        var restaurantDetails = document.createElement('div');
+        restaurantDetails.setAttribute('id', 'restaurantDetails');
+        restaurant.appendChild(restaurantDetails);
+        restaurantDetails.appendChild(createDiv("cost", costValue));
 
-        restaurant.appendChild(createDiv("street",restaurants[i].street));
+        restaurantDetails.appendChild(createDiv("street", restaurants[i].street));
 
-        restaurant.appendChild(createDiv("city",restaurants[i].city));
+        restaurantDetails.appendChild(createDiv("city", restaurants[i].city));
 
-        restaurant.appendChild(createDiv("phone-number",restaurants[i].number));
+        restaurantDetails.appendChild(createDiv("phone-number", restaurants[i].number));
         list.appendChild(restaurant);
     }
 }
 function createDiv(className, innerHTML){
     var e = document.createElement("div");
     e.classList.add(className);
-    e.innerHTML=innerHTML;
+    e.innerHTML = innerHTML;
     return e;
 }
-function createRatingDiv(rating,normal){
+// function createRatingDiv(rating,normal){
+//     var i=0;
+//     var container=document.createElement("div");
+//     type = normal?"star":"carrot";
+//     // container.classList.add(type+"-rating");
+//     container.classList.add("rating");
+//     for(;i<rating;i++){
+//         var img=document.createElement("img");
+//         var label="full-"+type;
+//         img.classList.add(label);
+//         img.classList.add("rating");
+//         img.src = "graphics/"+label+".png";
+//         container.appendChild(img);
+//     }
+//     for(;i<5;i++){
+//         var img=document.createElement("img");
+//         // var label="empty-"+type;
+//         // img.src = "graphics/"+label+".png";
+//         // img.classList.add("rating");
+//         // img.classList.add(label);
+//         container.appendChild(img);
+//     }
+//     return container;
+
+// }
+function createRatingDiv(rating, vrating){
     var i=0;
     var container=document.createElement("div");
-    type = normal?"star":"carrot";
-    container.classList.add(type+"-rating");
-    for(;i<rating;i++){
+    // type = normal?"star":"carrot";
+    // container.classList.add(type+"-rating");
+    container.classList.add("rating");
+    var starRating = document.createElement('div');
+    starRating.classList.add('starRating');
+    for(var i = 0;i<rating;i++){
+        type = 'star';
         var img=document.createElement("img");
         var label="full-"+type;
         img.classList.add(label);
         img.classList.add("rating");
         img.src = "graphics/"+label+".png";
-        container.appendChild(img);
+        starRating.appendChild(img);
     }
-    for(;i<5;i++){
+    container.appendChild(starRating);
+    var vegRating = document.createElement('div');
+    vegRating.classList.add('vegRating');
+    for(var i = 0;i<vrating;i++){
+        console.log('ya');
+        type = 'carrot';
         var img=document.createElement("img");
-        // var label="empty-"+type;
-        // img.src = "graphics/"+label+".png";
-        // img.classList.add("rating");
-        // img.classList.add(label);
-        container.appendChild(img);
+        var label="full-"+type;
+        img.classList.add(label);
+        img.classList.add("rating");
+        img.src = "graphics/"+label+".png";
+        console.log(img);
+        vegRating.appendChild(img);
     }
+    container.appendChild(vegRating);
+    // for(;i<5;i++){
+    //     var img=document.createElement("img");
+    //     // var label="empty-"+type;
+    //     // img.src = "graphics/"+label+".png";
+    //     // img.classList.add("rating");
+    //     // img.classList.add(label);
+    //     container.appendChild(img);
+    // }
     return container;
 
 }
