@@ -74,8 +74,8 @@ body{
 
 .left-col{
 	grid-area: leftCol;
-	/*padding: 20px;*/
-    background-color: #eeeedd;
+	padding: 20px;
+    background-color: #ffffff;
 	max-width: 30vw;
     display:flex;
     flex-direction: column;
@@ -88,6 +88,7 @@ body{
 }
 
 .filter{
+	border: 1px solid #cbd1db;
 	border-top: 5px;
 	border-bottom: 5px;
 	border-right: 17px;
@@ -103,6 +104,7 @@ button.active-filter{
 }
 
 .map_to_resturant{
+	padding-bottom: 10px;
 	height: 150px;
 	border-radius: 5px;
 }
@@ -194,7 +196,12 @@ button.active-filter{
 	display: flex;
 }
 
-
+button {
+	height: 25px;
+    border-radius: 4px;
+    font-size: 14px;
+    border: 1px solid #cbd1db;
+}
 
 /* REVIEW CSS */
 #back-to-search {
