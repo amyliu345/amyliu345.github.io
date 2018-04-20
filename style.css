@@ -4,6 +4,7 @@
 
 body{
 	margin: 0px;
+	overflow: hidden;
 }
 
 .logo {
@@ -13,7 +14,7 @@ body{
 }
 
 .search-bar{
-	margin: 3vh 0px 0px 130px; 
+	margin: 3vh 0px 0px 130px;
 	width: 100%;
 	position: relative;
 }
@@ -46,14 +47,18 @@ body{
 	padding-top: 5px;
 	width: 20px;
 }
+.restaurant-list{
+	overflow-y: scroll;
+	height: 90vh;
+}
+.restaurant-list-header{
+	font-size: 40px;
 
+	text-align: center;
+
+	font-weight: bold;
+}
 .restaurant-item.hidden{
-	display: none;
-}
-.restaurant .hidden{
-	display: none;
-}
-.restaurant,.hidden{
 	display: none;
 }
 .grid-container{
@@ -84,6 +89,7 @@ body{
 
 .right-col{
 	grid-area: rightCol;
+	/*! overflow-y: scroll; */
 	padding-top: 20px;
 }
 
@@ -154,15 +160,15 @@ button.active-filter{
 	grid-column: 3;
 }
 .restaurant-item .street{
-	grid-row: 1;
-	grid-column: 4;
-}
-.restaurant-item .city{
 	grid-row: 2;
 	grid-column: 4;
 }
-.restaurant-item .phone-number{
+.restaurant-item .city{
 	grid-row: 3;
+	grid-column: 4;
+}
+.restaurant-item .phone-number{
+	grid-row: 4;
 	grid-column: 4;
 }*/
 
