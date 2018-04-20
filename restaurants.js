@@ -99,10 +99,19 @@ function createRatingDiv(rating, vrating){
         img.src = "graphics/"+label+".png";
         starRating.appendChild(img);
     }
+    for(var i = 0; i< 5 - rating; i++){
+        type = 'star';
+        var img=document.createElement("img");
+        var label="gray-"+type;
+        img.classList.add(label);
+        img.classList.add("rating");
+        img.src = "graphics/"+label+".png";
+        starRating.appendChild(img);
+    }
     container.appendChild(starRating);
     var vegRating = document.createElement('div');
     vegRating.classList.add('vegRating');
-    for(var i = 0;i<vrating;i++){
+    for(var i = 0; i < vrating; i++){
         console.log('ya');
         type = 'carrot';
         var img=document.createElement("img");
@@ -110,7 +119,16 @@ function createRatingDiv(rating, vrating){
         img.classList.add(label);
         img.classList.add("rating");
         img.src = "graphics/"+label+".png";
-        console.log(img);
+        vegRating.appendChild(img);
+    }
+    for(var i = 0; i < 5 - vrating; i++){
+        console.log('ya');
+        type = 'carrot';
+        var img=document.createElement("img");
+        var label="gray-"+type;
+        img.classList.add(label);
+        img.classList.add("rating");
+        img.src = "graphics/"+label+".png";
         vegRating.appendChild(img);
     }
     container.appendChild(vegRating);
@@ -118,14 +136,6 @@ function createRatingDiv(rating, vrating){
     for(var n=0;n<restaurants[i].cost;n++)
         costValue+="$";
     container.appendChild(createDiv("cost", costValue));
-    // for(;i<5;i++){
-    //     var img=document.createElement("img");
-    //     // var label="empty-"+type;
-    //     // img.src = "graphics/"+label+".png";
-    //     // img.classList.add("rating");
-    //     // img.classList.add(label);
-    //     container.appendChild(img);
-    // }
     return container;
 
 }
