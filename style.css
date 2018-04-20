@@ -84,7 +84,6 @@ body{
 
 .right-col{
 	grid-area: rightCol;
-	padding-top: 20px;
 }
 
 .filter{
@@ -118,10 +117,10 @@ button.active-filter{
 	font-weight: bold;
 	grid-column: 1 / 3;
 	grid-row: 1;
+	padding-bottom: 10px;
 }
 
 .restaurant-item .image{
-	padding-top: 10px;
 	width: 200px;
 	height: 200px;
 	border-radius: 5px;
@@ -144,8 +143,11 @@ button.active-filter{
 }
 
 .restaurant-item .rating{
-	height: 20px;
+	height: 30px;
+}
 
+.cost{
+	font-size: 32px;
 }
 /*.restaurant-item .cost{
 	grid-row: 3;
@@ -192,6 +194,7 @@ button.active-filter{
 
 .vegRating, .starRating {
 	display: flex;
+	padding-bottom: 5px;
 }
 
 

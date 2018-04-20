@@ -35,13 +35,13 @@ function loadRestaurants(){
         restaurant.appendChild(createRatingDiv(restaurants[i].rating, restaurants[i].vrating));
         // restaurant.appendChild(createRatingDiv(restaurants[i].vrating,false));
 
-        var costValue="";
-        for(var n=0;n<restaurants[i].cost;n++)
-            costValue+="$";
+        // var costValue="";
+        // for(var n=0;n<restaurants[i].cost;n++)
+        //     costValue+="$";
         var restaurantDetails = document.createElement('div');
         restaurantDetails.setAttribute('id', 'restaurantDetails');
         restaurant.appendChild(restaurantDetails);
-        restaurantDetails.appendChild(createDiv("cost", costValue));
+        // restaurantDetails.appendChild(createDiv("cost", costValue));
 
         restaurantDetails.appendChild(createDiv("street", restaurants[i].street));
 
@@ -114,6 +114,10 @@ function createRatingDiv(rating, vrating){
         vegRating.appendChild(img);
     }
     container.appendChild(vegRating);
+    var costValue="";
+    for(var n=0;n<restaurants[i].cost;n++)
+        costValue+="$";
+    container.appendChild(createDiv("cost", costValue));
     // for(;i<5;i++){
     //     var img=document.createElement("img");
     //     // var label="empty-"+type;
