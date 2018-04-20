@@ -82,12 +82,51 @@ body{
 	height: 90vh;
 }
 .restaurant-list-header{
-	font-size: 40px;
-
-	text-align: center;
-
-	font-weight: bold;
+	font-size: 16px;
+	display: flex;
+	align-items: left;
+	justify-content: space-between;
+	text-align: left;
+	margin: 20px;
 }
+
+.sort-dropbtn {
+	font-size: 16px;
+}
+
+.sort-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.sort-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.sort-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.sort-dropdown-content a:hover {background-color: #f3f3f3}
+
+.sort-dropdown:hover .sort-dropdown-content {
+    display: block;
+}
+
+.sort-dropdown:hover .sort-dropbtn {
+    background-color: #f3f3f3;
+}
+
+
+
 .restaurant-item.hidden{
 	display: none;
 }
