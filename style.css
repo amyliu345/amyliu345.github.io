@@ -300,7 +300,7 @@ button {
 }
 
 #back-to-search:hover {
-    background-color: green;
+    background-color: #cccccc;
 }
 
 #menu-select {
@@ -312,7 +312,7 @@ button {
 }
 
 #menu-select, #reviews-select {
-    background-color: #ddddcc;
+    background-color: #dddddd;
     border: none;
     height: 30px;
     font-size: 13pt;
@@ -326,7 +326,7 @@ button {
 }
 
 #menu-select:hover, #reviews-select:hover {
-    background-color: green;
+    background-color: #a3d18c;
 }
 
 #restaurant-details {
