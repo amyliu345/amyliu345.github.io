@@ -6,9 +6,9 @@ mealRestrictionsDescription=["Breakfast","Lunch","Dinner","Snack"];
 costRestrictions=["$","$$","$$$","$$$$"];
 costRestrictionsDescription=["Very Cheap","Cheap","Average","Expensive"];
 
-ratingRestrictions=["<img class='rating' src='Resources/1-out-of-5.png' />","<img src='Resources/2-out-of-5.png.png' class='rating' />",
-    "<img src='Resources/3-out-of-5.png' class='rating' />","<img src='Resources/4-out-of-5.png'  class='rating'/>",
-    "<img src='Resources/5-out-of-5.png'  class='rating'/>"];
+ratingRestrictions=["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
+    "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
+    "<img src='graphics/full-star.png'  class='filterRating'/>"];
 ratingRestrictionsDescription=["1 star","2 star","3 star","4 star"];
 
 function dietaryRestrictionsFilterFunction(filterValue,item){
@@ -35,7 +35,6 @@ function loadFilters(){
     loadFilterHelper(ratingRestrictions,ratingRestrictionsDescription,"ratingRestriction",addFilters,ratingRestrictionsFilterFunction, true);
 }
 function addFilters(){
-    console.log("change");
     var activeFilters=document.getElementById("filters");
     var mutuallyExclusiveFilters=document.getElementsByClassName(this.name);
     console.log(this.name,mutuallyExclusiveFilters);
