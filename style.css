@@ -372,6 +372,11 @@ button {
     margin-bottom: 10px;
 }
 
+#address-contact-info:hover {
+    color: blue;
+    cursor: pointer;
+}
+
 #restaurant-title {
     margin-bottom: 1px;
     margin-top: 10px;
@@ -408,7 +413,7 @@ button {
     flex-direction: row;
     align-items: baseline;
     border-bottom: 1px solid #dddddd;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 #reviews-header-title {
@@ -418,7 +423,9 @@ button {
 
 #reviews-header-sortby {
     width: 300px;
-    color: #999999
+    color: #999999;
+    display: flex;
+    align-items: center;
 }
 
 #reviews-container {
@@ -473,6 +480,7 @@ button {
 
 #review-entry-star-rating {
 	display:flex;
+	flex-direction: column;
     align-items: center;
     margin-left: auto;
     margin-right: 5%;
