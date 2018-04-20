@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Norican" rel="stylesheet">
 	<title>
 		
 	</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="overflow: scroll">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
 			<img class="logo" src="graphics/vegeTables.png"/>
@@ -71,17 +72,115 @@
 		<div class = 'right-col'>
 			<div class = 'menu'>
 				<span id = menu> Menu </span>
-				<div class = 'menu-item' id = 'tamales'>
-					<img src = 'graphics/tamales.png' >
-				</div>
-				<div class = 'menu-item' id = 'spinach-salad'>
-					<img src = 'graphics/spinach-salad.png' >
-				</div>
-				<div class = 'menu-item' id = 'portobello-burger'>
-					<img src = 'graphics/portobello-burger.png' >
-				</div>
-				<div class = 'menu-item' id = 'kale-burrito'>
-					<img src = 'graphics/kale-burrito.png' >
+				<div class="menu-container">
+					<div class="menu-left">
+						<div class = 'menu-item' id = 'tamales'>
+							<img class = 'menu-image' src = 'graphics/tamales.png' >	
+							<div class="menu-item-info">			
+								<div class='item-title'>Vegan Tamales</div>
+							    <div id="star-rating">
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                    </div>
+			                    <div id="carrot-rating">
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/gray-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/gray-carrot.png"/>
+			                    </div>
+			                    <div class='item-cost'>$12.95</div>
+			                </div>	
+						</div>
+						<div class = 'menu-item' id = 'spinach-salad'>					
+							<img class = 'menu-image' src = 'graphics/spinach-salad.png' >
+							<div class="menu-item-info">			
+								<div class='item-title'>Spinach Salad</div>
+							    <div id="star-rating">
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                    </div>
+			                    <div id="carrot-rating">
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/gray-carrot.png"/>
+			                    </div>
+			                    <div class='item-cost'>$10.75</div>
+			                </div>	
+						</div>
+						<div class = 'menu-item' id = 'portobello-burger'>					
+							<img class = 'menu-image' src = 'graphics/portobello-burger.png' >
+							<div class="menu-item-info">			
+								<div class='item-title'>Portobello Burger</div>
+							    <div id="star-rating">
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                    </div>
+			                    <div id="carrot-rating">
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                    </div>
+			           	        <div class='item-cost'>$15.95</div>
+			                </div>	
+						</div>
+						<div class = 'menu-item' id = 'kale-burrito'>
+							<img class = 'menu-image' src = 'graphics/kale-burrito.png' >
+							<div class="menu-item-info">			
+								<div class='item-title'>Kale Burrito</div>
+							    <div id="star-rating">
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/full-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                        <img class="full-star rating" src="graphics/gray-star.png"/>
+			                    </div>
+			                    <div id="carrot-rating">
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/full-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/gray-carrot.png"/>
+			                        <img class="full-star rating" src="graphics/gray-carrot.png"/>
+			                    </div>
+				                <div class='item-cost'>$11.95</div>
+			                </div>	
+						</div>
+					</div>
+					<div class="menu-right">
+						<div class="sort-dropdown">Filter By: 
+							<button class="sort-dropbtn">Relevance ▼</button>
+							<div class="sort-dropdown-content">
+								<a href="#">Price: Low to High</a>
+			    				<a href="#">Price: High to Low</a>
+			    				<a href="#">Highest Rating</a>
+							</div>
+						</div>
+						<br><br>
+						<div id="dietaryRestrictions">
+							<span class="filterTitle"> Does not contain: </span>
+							<form id="dietaryRestrictionFilters">
+							<div class="filter_list" id="filters"></div><input type="radio" class="filter" id="dietaryRestriction0" name="dietaryRestriction" value="0" data-label="Pork"><span title="Pork">Peanuts<br></span><input type="radio" class="filter" id="dietaryRestriction1" name="dietaryRestriction" value="0" data-label="Beef"><span title="Beef">Tree Nuts<br></span><input type="radio" class="filter" id="dietaryRestriction2" name="dietaryRestriction" value="2" data-label="Cheese"><span title="Cheese">Gluten<br></span></form>
+
+						<br>
+
+							<span class="filterTitle"> Meal: </span>
+							<form id="dietaryRestrictionFilters">
+							<div class="filter_list" id="filters"></div><input type="radio" class="filter" id="dietaryRestriction0" name="dietaryRestriction" value="0" data-label="Pork"><span title="Pork">Breakfast<br></span><input type="radio" class="filter" id="dietaryRestriction1" name="dietaryRestriction" value="0" data-label="Beef"><span title="Beef">Lunch<br></span><input type="radio" class="filter" id="dietaryRestriction2" name="dietaryRestriction" value="2" data-label="Cheese"><span title="Cheese">Dinner<br></span></form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

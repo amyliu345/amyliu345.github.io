@@ -186,8 +186,10 @@ button.active-filter{
 
 .restaurant-item{
 	display: grid;
-	padding: 10px;
+	padding-bottom: 30px;
+	padding-top: 10px;
 	grid-template-columns: 20vw 30vw 30vw;
+	border-bottom: 1px solid #cccccc
 }
 
 .restaurant-item .title{
@@ -402,8 +404,63 @@ button {
 	width: 20px;
 }
 
+#menu{
+	align-self: center;
+	padding-top: 10px;
+	font-size: 48px;
+	font-family: 'Norican';
+	text-decoration: underline;
+	text-decoration-line: 2px;
+	margin-bottom: 20px;
+}
+
 .menu{
 	display: flex;
 	flex-direction: column;
-	align-content: center;
+	align-items: left;
+	background: #f9f4e5;
+	margin: 50px;
+	border-radius: 10px;
+}
+
+.menu-container {
+	width: 90%;
+	display: flex;
+	flex-direction: row;
+	align-items: left;
+	justify-content: space-between;
+	padding: 30px;
+}
+
+.menu-item{
+	display: flex;
+	align-items: left;
+	flex-wrap: wrap;
+	width: 100%;
+	padding: 20px;
+	border-radius: 10px;
+	background-color: white;
+	margin-bottom: 20px;
+}
+
+.menu-left {
+	width: 60%;
+}
+
+.menu-item-info {
+	margin-left: 15px;
+}
+
+.menu-image {
+	width: 120px;
+	height: 120px;
+}
+
+.item-title {
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.item-cost {
+	margin-top: 10px;
 }
