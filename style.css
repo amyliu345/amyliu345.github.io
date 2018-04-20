@@ -401,3 +401,9 @@ button {
 .filterRating{
 	width: 20px;
 }
+
+.menu{
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
