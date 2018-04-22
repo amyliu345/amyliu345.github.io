@@ -78,9 +78,8 @@ body{
 }
 .restaurant-list,.menu-list{
 	margin-left: 20px;
-	overflow-y: scroll;
-	height: 90vh;
-}
+/*	height: 90vh;
+*/}
 .restaurant-list-header{
 	font-size: 16px;
 	display: flex;
@@ -157,7 +156,7 @@ body{
 	/*padding-top: 20px;*/
     display: flex;
     flex-direction: column;
-	/*! overflow-y: scroll; */
+	overflow-y: scroll; 
 }
 
 .filter{
@@ -521,7 +520,9 @@ button {
 }
 
 #menu{
-	align-self: center;
+/*	align-self: center;
+*/	
+	margin-left: 42%;
 	padding-top: 10px;
 	font-size: 48px;
 	font-family: 'Norican';
@@ -531,9 +532,6 @@ button {
 }
 
 .menu{
-	display: flex;
-	flex-direction: column;
-	align-items: left;
 	background: #f9f4e5;
 	margin: 50px;
 	border-radius: 10px;
