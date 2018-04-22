@@ -15,7 +15,9 @@
 	<script src="restaurants.js"></script>
 	<script style="text/javascript">
 		function onload(){
-			loadMenu();
+
+			;
+			loadFilters(loadMenu());
 		}
 	</script>
 </head>
@@ -91,7 +93,7 @@
 			<div class = 'menu'>
 				<span id = menu> Menu </span>
 				<div class="menu-container">
-					<div class="menu-left" id="menu-list">
+					<div class="menu-left menu-list" id="menu-list">
 					</div>
 					<div class="menu-right">
 						<span>Filter By: </span>
@@ -101,18 +103,7 @@
 	                      <option value="opel">Highest Rated</option>
 	                      <option value="audi">Lowest Rated</option>
                     	</select>
-						<br><br>
-						<div id="dietaryRestrictions">
-							<span class="filterTitle"> Does not contain: </span>
-							<form id="dietaryRestrictionFilters">
-							<div class="filter_list" id="filters"></div><input type="radio" class="filter" id="dietaryRestriction0" name="dietaryRestriction" value="0" data-label="Pork"><span title="Pork">Peanuts<br></span><input type="radio" class="filter" id="dietaryRestriction1" name="dietaryRestriction" value="0" data-label="Beef"><span title="Beef">Tree Nuts<br></span><input type="radio" class="filter" id="dietaryRestriction2" name="dietaryRestriction" value="2" data-label="Cheese"><span title="Cheese">Gluten<br></span></form>
-
-						<br>
-
-							<span class="filterTitle"> Meal: </span>
-							<form id="dietaryRestrictionFilters">
-							<div class="filter_list" id="filters"></div><input type="radio" class="filter" id="dietaryRestriction0" name="dietaryRestriction" value="0" data-label="Pork"><span title="Pork">Breakfast<br></span><input type="radio" class="filter" id="dietaryRestriction1" name="dietaryRestriction" value="0" data-label="Beef"><span title="Beef">Lunch<br></span><input type="radio" class="filter" id="dietaryRestriction2" name="dietaryRestriction" value="2" data-label="Cheese"><span title="Cheese">Dinner<br></span></form>
-						</div>
+						<div id="filtersDiv"></div>
 					</div>
 				</div>
 			</div>

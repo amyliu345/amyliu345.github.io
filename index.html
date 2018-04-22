@@ -12,7 +12,7 @@
 	<script src="restaurants.js"></script>
 	<script style="text/javascript">
 		function onload(){
-			loadFilters();
+			loadFilters(restaurants);
 			loadRestaurants();
 		}
 	</script>
@@ -36,31 +36,7 @@
 
 		<div class = 'left-col'>
 			<img class="map_to_resturant" src="graphics/placeholder_map.png" alt="map"/>
- 			<div class="filter_list" id="filters"></div>
-			<div id = 'dietaryRestrictions'>
-				<span class = 'filterTitle'> Dietary Restrictions </span>
-				<form id="dietaryRestrictionFilters">
-				</form>
-			</div>
-
-			<div id = 'mealType'>
-				<span class = 'filterTitle'> Meal </span>
-				<form id="mealRestrictionFilters">
-				</form>
-			</div>
-
-			<div id = 'costFilter'>
-				<span class = 'filterTitle' > Cost </span>
-				<div id="costRestrictionFilters">
-				</div>
-			</div>
-
-			<div id = 'reviewFilter'>
-				<span class = 'filterTitle'> Avg. Customer Review </span>
-				<div id="ratingRestrictionFilters">
-				</div>
-			</div>
-
+ 			<div id="filtersDiv"></div>
 		</div>
 		<div class = 'right-col'>
 			<div class="restaurant-list-header">

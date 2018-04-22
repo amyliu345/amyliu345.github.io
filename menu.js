@@ -1,17 +1,22 @@
+var menu;
 function loadMenu(){
     var id=+Util.getURLParam("id");
     restaurant=restaurants[id];
     document.getElementById("restaurant-title").innerHTML=restaurant.title;
-    document.getElementById("street-address").innerHTML=restaurant.address;
-    document.getElementById("city-state").innerHTML=restaurant.CityState;
+    document.getElementById("street-address").innerHTML=restaurant.street;
+    document.getElementById("city-state").innerHTML=restaurant.cityState;
     document.getElementById("phone-number").innerHTML=restaurant.phoneNumber;
-    if(id >= menu.length)
+    if(id >= restaurantMenu.length)
         id=0;
+    menu=restaurantMenu[id];
     var container=document.getElementById("menu-list");
-    console.log(id,menu[id]);
-    for(var i=0;i<menu[id].length;i++){
-        var menuItem=menu[id][i];
+
+    for(var i=0;i<menu.length;i++){
+        menu[i].id="menu"+i;
+        var menuItem=menu[i];
         var item=document.createElement("div");
+        item.setAttribute("id",menu[i].id);
+        item.setAttribute("data-index",i);
         item.classList.add("menu-item");
         item.appendChild(createImage("menu-image",getFilename(menuItem.title)+".png"));
         var info=document.createElement("div");
@@ -21,5 +26,5 @@ function loadMenu(){
         item.appendChild(info);
         container.appendChild(item);
     }
-
+    return menu;
 }

@@ -14,10 +14,12 @@ function createRatingImage(label){
     img.src = "graphics/"+label+".png";
     return img;
 }
-function createTextDiv(innerHTML,className){
+function createTextDiv(innerHTML,className,id){
     var e = document.createElement("div");
     if(className)
         e.classList.add(className);
+    if(id)
+        e.setAttribute("id",id);
     e.innerHTML = innerHTML;
     return e;
 }

@@ -1,18 +1,18 @@
-dietaryRestrictions=["Vegan","Vegetarian","Pescatarian"];
-dietaryRestrictionsDescription=["Vegan","Vegetarian","Pescatarian"];
-mealRestrictions=["Breakfast","Lunch","Dinner","Snack"];
-mealRestrictionsDescription=["Breakfast","Lunch","Dinner","Snack"];
-
-costRestrictions=["$","$$","$$$","$$$$"];
-costRestrictionsDescription=["Very Cheap","Cheap","Average","Expensive"];
-
-ratingRestrictions=["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-    "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-    "<img src='graphics/full-star.png'  class='filterRating'/>"];
-ratingRestrictionsDescription=["1 star","2 star","3 star","4 star"];
-
+var filters = [
+    {name:"dietary",label:"Dietary Restrictions", filters:["Vegan","Vegetarian","Pescatarian"],filterFunction:dietaryRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
+    {name:"meal",label:"Meal", filters:["Breakfast","Lunch","Dinner","Snack"],filterFunction:mealRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
+    {name:"allergy",label:"Does not contain", filters:["Peanuts","Tree Nuts","Gluten"],filterFunction:allergyRestrictionsFilterFunction,button:0,mutuallyExclusive:0},
+    {name:"cost",label:"Cost", filters:["$","$$","$$$","$$$$"],description:["Very Cheap","Cheap","Average","Expensive"],filterFunction:costRestrictionsFilterFunction,button:1,mutuallyExclusive:1},
+    {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
+        "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
+        "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
+]
+var filterItems;
 function dietaryRestrictionsFilterFunction(filterValue,item){
     return filterValue<item.restrictionLevel;
+}
+function allergyRestrictionsFilterFunction(filterValue,item){
+    return (Math.pow(2,filterValue)&item.allergy)!=0;
 }
 function mealRestrictionsFilterFunction(filterValue,item){
 
@@ -28,16 +28,36 @@ function costRestrictionsFilterFunction(filterValue,item){
 function ratingRestrictionsFilterFunction(filterValue,item){
     return filterValue>=item.rating;
 }
-function loadFilters(){
-    loadFilterHelper(dietaryRestrictions,dietaryRestrictionsDescription,"dietaryRestriction",addFilters,dietaryRestrictionsFilterFunction);
-    loadFilterHelper(mealRestrictions,mealRestrictionsDescription,"mealRestriction",addFilters,mealRestrictionsFilterFunction);
-    loadFilterHelper(costRestrictions,costRestrictionsDescription,"costRestriction",addFilters,costRestrictionsFilterFunction,true);
-    loadFilterHelper(ratingRestrictions,ratingRestrictionsDescription,"ratingRestriction",addFilters,ratingRestrictionsFilterFunction, true);
+function loadFilters(data){
+    filterItems=data;
+    var container=document.getElementById("filtersDiv");
+    container.appendChild(createTextDiv("","filter_list","filters"));
+    for(var i=0;i<filters.length;i++){
+        var filter=filters[i];
+        var filterDiv=document.createElement("div");
+        filterDiv.setAttribute("id",filter.name);
+        filterDiv.appendChild(createTextDiv(filter.label,'filterTitle'));
+        var filterGroup=document.createElement(filters.button?"div":"form");
+        if(! filter.description)
+            filter.description=filter.filters;
+            console.log(filterGroup);
+            filterDiv.appendChild(filterGroup);
+            container.appendChild(filterDiv);
+        filterGroup.setAttribute("id",filter.name+"Filters");
+        loadFilterHelper(filter,filterGroup)
+
+    }
 }
 function addFilters(){
     var activeFilters=document.getElementById("filters");
+    console.log(this.checked,!this.checked,this.type,!this.checked, this.checked,);
+    if(!this.checked && this.type=="checkbox"){
+        removeFilter(document.getElementsByClassName(this.name)[0],true);
+        console.log("removing");
+        return;
+    }
     var mutuallyExclusiveFilters=document.getElementsByClassName(this.name);
-    console.log(this.name,mutuallyExclusiveFilters);
+
     if(mutuallyExclusiveFilters.length==1)
         if(mutuallyExclusiveFilters[0].value==this.value)
             return;
@@ -49,7 +69,6 @@ function addFilters(){
 
 }
 function removeFilter(element,apply){
-    console.log(element);
     activeFilters=document.getElementById("filters");
     activeFilters.removeChild(element);
     var filterElement=document.getElementById(element.getAttribute("data-filter-id"))
@@ -66,38 +85,36 @@ function createRemoveFilterButton(element){
     removeFilterButton.setAttribute("id","remove"+title);
     removeFilterButton.classList.add(group);
     removeFilterButton.setAttribute("value",element.value);
-    removeFilterButton.setAttribute("group",group);
-    removeFilterButton.setAttribute("data-filter-id",group+element.value);
+    removeFilterButton.setAttribute("data-group",group);
+    removeFilterButton.setAttribute("data-filter-id",element.getAttribute("id"));
     removeFilterButton.onclick=function(){removeFilter(removeFilterButton,true);};
     return removeFilterButton;
 
 }
 
-function loadFilterHelper(restrictions,title,name,callback,filterFunction,toggleButtons){
-    var form = document.getElementById(name+"Filters");
-    for(var i=0;i<restrictions.length;i++){
-        var filter,label;
-        if(toggleButtons){
-            filter = document.createElement("button");
-            filter.innerHTML=restrictions[i];
-            filter.setAttribute("title",title[i]);
+function loadFilterHelper(filterGroup,form){
+    for(var i=0;i<filterGroup.filters.length;i++){
+        var filterElement,label;
+        if(filterGroup.button){
+            filterElement = document.createElement("button");
+            filterElement.innerHTML=filterGroup.filters[i];
+            filterElement.setAttribute("title",filterGroup.description[i]);
         }
         else{
-            filter = document.createElement("input");
-            filter.setAttribute("type","radio");
+            filterElement = document.createElement("input");
+            filterElement.setAttribute("type",filterGroup.mutuallyExclusive==1?"radio":"checkbox");
             var label=document.createElement("span");
-            label.innerHTML=restrictions[i]+"<br/>";
-            label.setAttribute("title",title[i]);
+            label.innerHTML=filterGroup.filters[i]+"<br/>";
+            label.setAttribute("title",filterGroup.description[i]);
         }
-        filter.classList.add("filter");
-        filter.setAttribute("id",name+i);
-        filter.setAttribute("name",name);
-        filter.setAttribute("value",i);
-        filter.setAttribute("data-label",restrictions[i]);
-        filter.filter=filterFunction;
-
-        filter.onclick=callback;
-        form.appendChild(filter);
+        filterElement.classList.add("filter");
+        filterElement.setAttribute("id",filterGroup.name+i);
+        filterElement.setAttribute("name",filterGroup.name+(filterGroup.mutuallyExclusive?"":i));
+        filterElement.setAttribute("value",i);
+        filterElement.setAttribute("data-label",filterGroup.filters[i]);
+        filterElement.filter=filterGroup.filterFunction;
+        filterElement.onclick=addFilters;
+        form.appendChild(filterElement);
 
         if(label)
             form.appendChild(label);
@@ -105,12 +122,11 @@ function loadFilterHelper(restrictions,title,name,callback,filterFunction,toggle
 }
 
 function applyFilters(){
-    restaurants.forEach(filter)
+    filterItems.forEach(filter)
 }
 
 function filter(item){
     var activeFilters=document.getElementsByClassName("active-filter");
-
     var restaurantItem=document.getElementById(item.id);
     for(var i=0;i<activeFilters.length;i++){
         if (activeFilters[i].filter(+activeFilters[i].value,item)){
