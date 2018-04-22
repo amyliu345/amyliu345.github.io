@@ -17,7 +17,9 @@
 <body onload="onload()">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
+			<a href = './index.html'>
 			<img class="logo" src="graphics/vegeTables.png"/>
+			</a>
 			<div class="search-bar">
 				<div class="permanent-text" id="textFind">Find</div>
   				<input type="search" class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
@@ -59,14 +61,15 @@
 		</div>
 		<div class = 'right-col'>
 			<div class="restaurant-list-header">
-				<div class="sort-dropdown">Sort By: 
-					<button class="sort-dropbtn">Relevance ▼</button>
-					<div class="sort-dropdown-content">
-						<a href="#">Price: Low to High</a>
-	    				<a href="#">Price: High to Low</a>
-	    				<a href="#">Nearest Distance</a>
-					</div>
-				</div>
+						<div id = sort-container>
+						<span>Sort By: </span>
+	                    <select class = sort-dropdown-content>
+	                    <option value="opel">Relevance</option>
+	                      <option value="volvo">Most Popular</option>
+	                      <option value="saab">Nearest Distance</option>
+	                      <option value="audi">Highest Rated</option>
+                    	</select>
+                    	</div>
 				<div class="showing-results"> Showing 8 of 25 results </div>
 			</div>
 			<div id="restaurantList" class="restaurant-list">

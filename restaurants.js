@@ -22,9 +22,13 @@ function loadRestaurants(){
         restaurant.setAttribute("data-index",i);
         restaurant.classList.add("restaurant-item");
         var title=document.createElement("div");
+        var anchor = document.createElement('a');
         title.classList.add("title");
         title.innerHTML=(i + 1) + '. ' + restaurants[i].name;
-        restaurant.appendChild(title);
+        anchor.appendChild(title);
+        anchor.setAttribute('href', './menu.html');
+        anchor.classList.add('link');
+        restaurant.appendChild(anchor);
         var image = document.createElement('div');
         image.setAttribute('id', 'imageContainer');
         restaurant.appendChild(image);

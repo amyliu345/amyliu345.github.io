@@ -10,7 +10,9 @@
 <body>
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
-            <img class="logo" src="graphics/vegeTables.png"/>
+            <a href = './index.html'>
+                <img class="logo" src="graphics/vegeTables.png"/>
+            </a>            
             <div class="search-bar">
                 <div class="permanent-text" id="textFind">Find</div>
                 <input type="search" class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
@@ -22,10 +24,12 @@
             </div>
 		</div>
 		<div class = 'left-col'>
-            <button id="back-to-search">
-                <a id="arrow">←</a> 
-                <a>Back to Search</a>
-            </button>
+            <form action = './index.html' >
+                <button type = 'submit' id="back-to-search">
+                    <a id="arrow">←</a> 
+                    <a>Back to Search</a>
+                </button>
+            </form>
             <div id="restaurant-details">
                 <h1 id="restaurant-title">Tom's Bistro</h1>
                 <div id="restaurant-description">
@@ -58,7 +62,9 @@
                     <a id="restaurant-hours">Hours: 8am - 11pm Today</a>
                 </div>
             </div>
-            <button id="menu-select">Menu</button>
+            <form action = './menu.html'>
+                <button type = 'submit' id="menu-select">Menu</button>
+            </form>
             <button id="reviews-select" style="background-color:#a3d18c">Reviews</button>
             <div id="top-review-section">
                 <div id="top-review-header">
@@ -74,7 +80,7 @@
                 <h1 id="reviews-header-title">Reviews</h1>
                 <div id="reviews-header-sortby">
                     <h2 id="reviews-header-sortby-title">Sort By:</h2>
-                    <select>
+                    <select class = sort-dropdown-content>
                       <option value="volvo">Most Helpful</option>
                       <option value="saab">Most Recent</option>
                       <option value="opel">Blah</option>

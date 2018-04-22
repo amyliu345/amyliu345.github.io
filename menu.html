@@ -10,8 +10,10 @@
 <body style="overflow: scroll">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
+			<a href = './index.html'>
 			<img class="logo" src="graphics/vegeTables.png"/>
-            <div class="search-bar">
+			</a>            
+			<div class="search-bar">
                 <div class="permanent-text" id="textFind">Find</div>
                 <input type="search" class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
                 <div class="permanent-text" id="textNear">Near</div>
@@ -22,10 +24,12 @@
             </div>
 		</div>
 		<div class = 'left-col'>
-			<button id="back-to-search">
-                <a id="arrow">←</a> 
-                <a>Back to Search</a>
-            </button>
+            <form action = './index.html' >
+                <button type = 'submit' id="back-to-search">
+                    <a id="arrow">←</a> 
+                    <a>Back to Search</a>
+                </button>
+            </form>
             <div id="restaurant-details">
                 <h1 id="restaurant-title">Tom's Bistro</h1>
                 <div id="restaurant-description">
@@ -59,7 +63,9 @@
                 </div>
             </div>
             <button id="menu-select" style="background-color: #a3d18c">Menu</button>
-            <button id="reviews-select">Reviews</button>
+            <form action = './review.html'>
+            	<button id="reviews-select" type = 'submit'>Reviews</button>
+        	</form>
             <div id="top-review-section">
                 <div id="top-review-header">
                     <h2>Top Review for You:</h2>
@@ -160,14 +166,13 @@
 						</div>
 					</div>
 					<div class="menu-right">
-						<div class="sort-dropdown">Filter By: 
-							<button class="sort-dropbtn">Relevance ▼</button>
-							<div class="sort-dropdown-content">
-								<a href="#">Price: Low to High</a>
-			    				<a href="#">Price: High to Low</a>
-			    				<a href="#">Highest Rating</a>
-							</div>
-						</div>
+						<span>Filter By: </span>
+	                    <select class = sort-dropdown-content>
+	                      <option value="volvo">Most Helpful</option>
+	                      <option value="saab">Most Recent</option>
+	                      <option value="opel">Highest Rated</option>
+	                      <option value="audi">Lowest Rated</option>
+                    	</select>
 						<br><br>
 						<div id="dietaryRestrictions">
 							<span class="filterTitle"> Does not contain: </span>

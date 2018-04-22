@@ -100,12 +100,8 @@ body{
 }
 
 .sort-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    height: 25px;
+    font-size: 16px;
 }
 
 .sort-dropdown-content a {
@@ -201,6 +197,7 @@ button.active-filter{
 	grid-column: 1 / 3;
 	grid-row: 1;
 	padding-bottom: 10px;
+	color: black;
 }
 
 .restaurant-item .image{
@@ -297,6 +294,8 @@ button {
     align-items: center;
     transition-duration: .05s;
     border-bottom: 1px solid #bbbbbb;
+    cursor: pointer;
+    width: 315px;
 }
 
 #back-to-search #arrow {
@@ -324,6 +323,7 @@ button {
     align-items: center;
     transition-duration: .05s;
     border-bottom: 1px solid #bbbbaa;
+    width: 315px;
 }
 
 #menu-select {
@@ -332,6 +332,7 @@ button {
 
 #menu-select:hover, #reviews-select:hover {
     background-color: #a3d18c;
+    cursor: pointer;
 }
 
 #restaurant-details {
@@ -428,6 +429,10 @@ button {
     color: #999999;
     display: flex;
     align-items: center;
+}
+
+#reviews-header-sortby-title{
+    padding-right: 10px;
 }
 
 #reviews-container {
@@ -574,4 +579,15 @@ button {
 
 .item-cost {
 	margin-top: 10px;
+}
+
+.link {
+	text-decoration: none;
+	color: black;
+	grid-column: 1/3;
+	grid-row: 1;
+}
+
+.title:hover{
+	color: #a3d18c;
 }
