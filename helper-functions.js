@@ -28,6 +28,7 @@ function createRatingDiv(rating, vrating,cost,literal){
     container.classList.add("rating");
     var starRating = document.createElement('div');
     starRating.classList.add('starRating');
+    starRating.setAttribute('title', 'General Rating');
     var i=0;
     for(;i<rating;i++)
         starRating.appendChild(createRatingImage("full-star"));
@@ -38,9 +39,10 @@ function createRatingDiv(rating, vrating,cost,literal){
 
     var vegRating = document.createElement('div');
     vegRating.classList.add('vegRating');
+    vegRating.setAttribute('title', 'Restriction Rating');
 
     var i=0;
-    for(;i<rating;i++)
+    for(;i<vrating;i++)
         vegRating.appendChild(createRatingImage("full-carrot"));
     for(; i< 5; i++)
         vegRating.appendChild(createRatingImage("gray-carrot"));
