@@ -157,6 +157,7 @@ body{
     display: flex;
     flex-direction: column;
 	overflow-y: scroll; 
+	overflow-x: hidden;
 }
 
 .filter{
@@ -294,7 +295,7 @@ button {
     transition-duration: .05s;
     border-bottom: 1px solid #bbbbbb;
     cursor: pointer;
-    width: 315px;
+    width: 100%;
 }
 
 #back-to-search #arrow {
@@ -322,7 +323,7 @@ button {
     align-items: center;
     transition-duration: .05s;
     border-bottom: 1px solid #bbbbaa;
-    width: 315px;
+    width: 100%;
 }
 
 #menu-select {
@@ -424,7 +425,7 @@ button {
 }
 
 #reviews-header-sortby {
-    width: 300px;
+    width: 50%;
     color: #999999;
     display: flex;
     align-items: center;

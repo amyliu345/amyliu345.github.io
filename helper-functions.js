@@ -40,7 +40,7 @@ function createRatingDiv(rating, vrating,cost,literal){
     vegRating.classList.add('vegRating');
 
     var i=0;
-    for(;i<rating;i++)
+    for(;i<vrating;i++)
         vegRating.appendChild(createRatingImage("full-carrot"));
     for(; i< 5; i++)
         vegRating.appendChild(createRatingImage("gray-carrot"));
