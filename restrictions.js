@@ -57,7 +57,6 @@ function addFilters(){
         return;
     }
     var mutuallyExclusiveFilters=document.getElementsByClassName(this.name);
-
     if(mutuallyExclusiveFilters.length==1)
         if(mutuallyExclusiveFilters[0].value==this.value)
             return;
@@ -126,9 +125,35 @@ function applyFilters(){
 }
 
 function filter(item){
+    console.log(item);
     var activeFilters=document.getElementsByClassName("active-filter");
-    var restaurantItem=document.getElementById(item.id);
+    var restaurantItem=document.getElementById(item.id);  
     for(var i=0;i<activeFilters.length;i++){
+        if (i == 0){
+            var ratingDiv = restaurantItem.childNodes[2]; 
+            var value = activeFilters[i].value;
+            var j=0;
+            var restrictionRating = document.createElement('div');
+            if (value == 0){
+                for(;j<item.vrating;j++)
+                    restrictionRating.appendChild(createRatingImage("full-carrot"));
+                for(; j< 5; j++)
+                    restrictionRating.appendChild(createRatingImage("gray-carrot"));
+            }
+            else if (value == 1){
+                for(;j<item.vegrating;j++)
+                    restrictionRating.appendChild(createRatingImage("broc"));
+                for(;j< 5; j++)
+                    restrictionRating.appendChild(createRatingImage("gray-broc"));
+            }
+            else{
+                for(;j<item.prating;j++)
+                    restrictionRating.appendChild(createRatingImage("fish"));
+                for(; j< 5; j++)
+                    restrictionRating.appendChild(createRatingImage("gray-fish"));
+            }
+            ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
+        }
         if (activeFilters[i].filter(+activeFilters[i].value,item)){
             restaurantItem.classList.add("hidden");
             return;

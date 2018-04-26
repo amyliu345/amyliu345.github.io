@@ -24,6 +24,7 @@ function createTextDiv(innerHTML,className,id){
     return e;
 }
 function createRatingDiv(rating, vrating,cost,literal){
+    console.log('eeee');
     var container=document.createElement("div");
     container.classList.add("rating");
     var starRating = document.createElement('div');
@@ -36,18 +37,18 @@ function createRatingDiv(rating, vrating,cost,literal){
         starRating.appendChild(createRatingImage("gray-star"));
 
     container.appendChild(starRating);
+    // var restrictions = document.getElementsByClassName('dietary');
+    // if (restrictions.length > 0){
+    //     var vegRating = document.createElement('div');
+    //     vegRating.classList.add('vegRating');
+    //     vegRating.setAttribute('title', 'Restriction Rating');
 
-    var vegRating = document.createElement('div');
-    vegRating.classList.add('vegRating');
-    vegRating.setAttribute('title', 'Restriction Rating');
+    //     container.appendChild(vegRating);
 
-    var i=0;
-    for(;i<vrating;i++)
-        vegRating.appendChild(createRatingImage("full-carrot"));
-    for(; i< 5; i++)
-        vegRating.appendChild(createRatingImage("gray-carrot"));
-    container.appendChild(vegRating);
-
+    // }
+    var restrictionRating = document.createElement('div');
+    restrictionRating.classList.add('restrictionRating');
+    container.appendChild(restrictionRating);
     container.appendChild(getCostDiv(cost,literal));
 
     return container;
