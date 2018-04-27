@@ -10,6 +10,7 @@
 	<script src="helper-functions.js"></script>
 	<script src="restrictions.js"></script>
 	<script src="restaurants.js"></script>
+	<script src="search.js"></script>
 	<script style="text/javascript">
 		function onload(){
 			loadFilters(restaurants);
@@ -24,13 +25,15 @@
 			<img class="logo" src="graphics/vegeTables.png"/>
 			</a>
 			<div class="search-bar">
-				<div class="permanent-text" id="textFind">Find</div>
-  				<input type="search" class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
-  				<div class="permanent-text" id="textNear">Near</div>
-  				<input type="search" class="search-location" name="q" placeholder="city, zipcode, address...">
-  				<button type="submit" class="search-button">
-    				<img id="searchIcon" src="graphics/search-icon.png"/>
- 				</button>
+				<form onsubmit="return false">
+					<div class="permanent-text" id="textFind">Find</div>
+	  				<input type="search" id=searchBar class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
+	  				<div class="permanent-text" id="textNear">Near</div>
+	  				<input type="search" class="search-location" name="q" placeholder="city, zipcode, address...">
+	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value)">
+	    				<img id="searchIcon" src="graphics/search-icon.png"/>
+	 				</button>
+				</form>
 			 </div>
 		</div>
 

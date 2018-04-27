@@ -156,10 +156,12 @@ body{
 	/*padding-top: 20px;*/
     display: flex;
     flex-direction: column;
-	overflow-y: scroll; 
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
-
+.filter-label{
+	text-transform: capitalize;
+}
 .filter{
 	border: 1px solid #cbd1db;
 	border-top: 5px;
@@ -522,7 +524,7 @@ button {
 
 #menu{
 /*	align-self: center;
-*/	
+*/
 	margin-left: 42%;
 	padding-top: 10px;
 	font-size: 48px;

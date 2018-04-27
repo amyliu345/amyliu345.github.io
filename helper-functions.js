@@ -20,7 +20,8 @@ function createTextDiv(innerHTML,className,id){
         e.classList.add(className);
     if(id)
         e.setAttribute("id",id);
-    e.innerHTML = innerHTML;
+    if(innerHTML)
+        e.innerHTML = innerHTML;
     return e;
 }
 function createRatingDiv(rating, vrating,cost,literal){

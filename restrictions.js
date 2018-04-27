@@ -1,7 +1,7 @@
 var filters = [
-    {name:"dietary",label:"Dietary Restrictions", filters:["Vegan","Vegetarian","Pescatarian"],filterFunction:dietaryRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
-    {name:"meal",label:"Meal", filters:["Breakfast","Lunch","Dinner","Snack"],filterFunction:mealRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
-    {name:"allergy",label:"Does not contain", filters:["Peanuts","Tree Nuts","Gluten"],filterFunction:allergyRestrictionsFilterFunction,button:0,mutuallyExclusive:0},
+    {name:"dietary",label:"Dietary Restrictions", filters:["vegan","vegetarian","pescatarian"],filterFunction:dietaryRestrictionsFilterFunction,button:0,mutuallyExclusive:1,images:['full-carrot','broc','fish']},
+    {name:"meal",label:"Meal", filters:["breakfast","lunch","dinner","snack"],filterFunction:mealRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
+    {name:"allergy",label:"Does not contain", filters:["peanuts","tree nuts","gluten"],filterFunction:allergyRestrictionsFilterFunction,button:0,mutuallyExclusive:0},
     {name:"cost",label:"Cost", filters:["$","$$","$$$","$$$$"],description:["Very Cheap","Cheap","Average","Expensive"],filterFunction:costRestrictionsFilterFunction,button:1,mutuallyExclusive:1},
     {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
         "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
@@ -48,9 +48,20 @@ function loadFilters(data){
 
     }
 }
-function addFilters(){
+function resetFilters(){
+    var allFilters=document.getElementsByClassName("filter")
+    for(var i=0;i<allFilters.length;i++)
+        if(allFilters.checked){
+            allFilters[i].checked=false;
+            removeFilter(allFilters[i],true);
+        }
+
+}
+function addFilters(forceAdd){
     var activeFilters=document.getElementById("filters");
     if(!this.checked && this.type=="checkbox"){
+        if(forceAdd)
+            return;
         removeFilter(document.getElementsByClassName(this.name)[0],true);
         return;
     }
@@ -95,35 +106,31 @@ function createRemoveFilterButton(element){
 
 function loadFilterHelper(filterGroup,form){
     var j = 0;
+
     for(var i=0;i<filterGroup.filters.length;i++){
+
         var filterElement,label;
         if(filterGroup.button){
             filterElement = document.createElement("button");
             filterElement.innerHTML=filterGroup.filters[i];
             filterElement.setAttribute("title",filterGroup.description[i]);
+            form.appendChild(filterElement);
         }
         else{
             filterElement = document.createElement("input");
             filterElement.setAttribute("type",filterGroup.mutuallyExclusive==1?"radio":"checkbox");
             var label=document.createElement("span");
-            label.innerHTML = '';
+            label.classList.add("filter-label");
             label.textContent = filterGroup.filters[i] + ' ';
-            if (filterGroup.name == 'dietary'){
-                console.log(j);
-                if (j == 0){
-                    var image = createRatingImage('full-carrot');
-                }
-                else if (j == 1){
-                    var image = createRatingImage('broc');
-                }
-                else{
-                    var image = createRatingImage('fish');
-                }
+            if(filterGroup.images){
+                var image = createRatingImage(filterGroup.images[i]);
                 label.appendChild(image);
-                j += 1;
             }
-            label.appendChild(document.createElement('BR'));
             label.setAttribute("title",filterGroup.description[i]);
+            var div=createTextDiv(false,"filter-item");
+            div.appendChild(filterElement);
+            div.appendChild(label);
+            form.appendChild(div);
         }
         filterElement.classList.add("filter");
         filterElement.setAttribute("id",filterGroup.name+i);
@@ -132,11 +139,10 @@ function loadFilterHelper(filterGroup,form){
         filterElement.setAttribute("data-label",filterGroup.filters[i]);
         filterElement.filter=filterGroup.filterFunction;
         filterElement.onclick=addFilters;
-        form.appendChild(filterElement);
 
-        if(label)
-            form.appendChild(label);
+
     }
+
 }
 
 function applyFilters(){
@@ -145,10 +151,10 @@ function applyFilters(){
 
 function filter(item){
     var activeFilters=document.getElementsByClassName("active-filter");
-    var restaurantItem=document.getElementById(item.id);  
+    var restaurantItem=document.getElementById(item.id);
     for(var i=0;i<activeFilters.length;i++){
         if (i == 0){
-            var ratingDiv = restaurantItem.childNodes[2]; 
+            var ratingDiv = restaurantItem.childNodes[2];
             var value = activeFilters[i].value;
             if (activeFilters[i].name == 'dietary'){
                 var j=0;
