@@ -24,7 +24,50 @@ function loadMenu(){
         info.appendChild(createTextDiv(menuItem.title,"item-title"));
         info.append(createRatingDiv(menuItem.rating,menuItem.vrating,menuItem.cost,true));
         item.appendChild(info);
+
+        var expansionDiv = document.createElement("div");
+        expansionDiv.setAttribute("class", "expansion");
+        expansionDiv.setAttribute("id", "expansion-menu"+i);
+
+        ingredientDiv = document.createElement("div");
+        ingredientDiv.setAttribute("class", "ingredients-expansion");
+        ingredientDiv.appendChild(createTextDiv("Ingredients", "ingredients-exp-title", "ingredients-exp-title"));
+        ingredientDiv.appendChild(createTextDiv("Corn Flour <br> Water <br> Salt <br> Onion <br> Black Beans <br> Vegetable Broth"))
+
+        expansionDiv.appendChild(ingredientDiv);
+
+        reviewsDiv = document.createElement("div");
+        reviewsDiv.setAttribute("class", "reviews-expansion");
+        reviewsDiv.appendChild(createTextDiv("Reviews", "reviews-exp-title", "reviews-exp-title"));
+        reviewsDiv.appendChild(createTextDiv("\"Tastes great and is a very filling dinner! The tamales weren't" 
+                                             +"spicy enough for my taste but there were chili flakes at the table" 
+                                             +"for me to add! Love!\"<br><br> The black beans in this dish really give"
+                                             +"it a satisfying flavor. Would order again.\""))
+
+        expansionDiv.appendChild(reviewsDiv);
+        item.appendChild(expansionDiv);
+
         container.appendChild(item);
     }
+
+
+    var menu_items = document.getElementsByClassName("menu-item");
+
+    for (var i = 0; i < menu_items.length; i++) {
+        menu_items[i].addEventListener("click", menuItemHandler, false);
+    }
+
+    function menuItemHandler(){
+        var expansionDiv = document.getElementById("expansion-"+this.id);
+        if (expansionDiv.style.display === "flex"){
+            expansionDiv.style.display = "none";
+        }
+        else {
+            expansionDiv.style.display = "flex";
+        }
+    }
+
     return menu;
+
+
 }
