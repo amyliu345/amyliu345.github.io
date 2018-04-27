@@ -577,6 +577,7 @@ button {
 
 .menu-item-info {
 	margin-left: 15px;
+	flex: 0 1 60%;
 }
 
 .menu-image {
@@ -602,4 +603,33 @@ button {
 
 .title:hover{
 	color: #a3d18c;
+}
+
+/*styling for menu item expansions*/
+
+.expansion {
+	flex-wrap: wrap;
+	display: none;
+}
+
+.ingredients-expansion {
+	padding-top: 10px;
+	font-size:15px;
+	flex: 1 0 30%;
+}
+
+.reviews-expansion {
+	padding-top: 10px;
+	font-size:15px;
+	flex: 1 0 60%;
+}
+
+#ingredients-exp-title {
+	text-decoration: underline;
+	font-size: 18px;
+}
+
+#reviews-exp-title {
+	text-decoration: underline;
+	font-size: 18px;
 }
