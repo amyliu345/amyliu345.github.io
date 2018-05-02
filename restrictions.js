@@ -1,11 +1,58 @@
-var filters = [
-    {name:"dietary",label:"Dietary Restrictions", filters:["vegan","vegetarian","pescatarian"],filterFunction:dietaryRestrictionsFilterFunction,button:0,mutuallyExclusive:1,images:['full-carrot','broc','fish']},
-    {name:"meal",label:"Meal", filters:["breakfast","lunch","dinner","snack"],filterFunction:mealRestrictionsFilterFunction,button:0,mutuallyExclusive:1},
-    {name:"allergy",label:"Does not contain", filters:["peanuts","tree nuts","gluten"],filterFunction:allergyRestrictionsFilterFunction,button:0,mutuallyExclusive:0},
-    {name:"cost",label:"Cost", filters:["$","$$","$$$","$$$$"],description:["Very Cheap","Cheap","Average","Expensive"],filterFunction:costRestrictionsFilterFunction,button:1,mutuallyExclusive:1},
-    {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-        "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-        "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
+var indexFilters = [
+    {name:"dietary",
+     label:"Dietary Restrictions", 
+     filters:["vegan","vegetarian","pescatarian"],
+     filterFunction:dietaryRestrictionsFilterFunction,
+     button:0,
+     mutuallyExclusive:1,
+     images:['full-carrot','broc','fish']},
+    {name:"meal",
+     label:"Meal", 
+     filters:["breakfast","lunch","dinner","snack"],
+     filterFunction:mealRestrictionsFilterFunction,
+     button:0,
+     mutuallyExclusive:1},
+    {name:"cost",
+     label:"Cost", 
+     filters:["$","$$","$$$","$$$$"],
+     description:["Very Cheap","Cheap","Average","Expensive"],
+     filterFunction:costRestrictionsFilterFunction,
+     button:1,
+     mutuallyExclusive:1},
+    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
+    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
+    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
+]
+var menuFilters = [
+    {name:"dietary",
+     label:"Dietary Restrictions", 
+     filters:["vegan","vegetarian","pescatarian"],
+     filterFunction:dietaryRestrictionsFilterFunction,
+     button:0,
+     mutuallyExclusive:1,
+     images:['full-carrot','broc','fish']},
+    {name:"meal",
+     label:"Meal", 
+     filters:["breakfast","lunch","dinner","snack"],
+     filterFunction:mealRestrictionsFilterFunction,
+     button:0,
+     mutuallyExclusive:1},
+    {name:"allergy",
+     label:"Does not contain", 
+     filters:["peanuts","tree nuts","gluten"],
+     filterFunction:allergyRestrictionsFilterFunction,
+     button:0,
+     mutuallyExclusive:0},
+    {name:"cost",
+     label:"Cost", 
+     filters:["$","$$","$$$","$$$$"],
+     description:["Very Cheap","Cheap","Average","Expensive"],
+     filterFunction:costRestrictionsFilterFunction,
+     button:1,
+     mutuallyExclusive:1},
+    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
+    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
+    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
 ]
 var filterItems;
 var remove = false;
@@ -29,12 +76,31 @@ function costRestrictionsFilterFunction(filterValue,item){
 function ratingRestrictionsFilterFunction(filterValue,item){
     return filterValue>=item.rating;
 }
-function loadFilters(data){
+function loadIndexFilters(data){
     filterItems=data;
     var container=document.getElementById("filtersDiv");
     container.appendChild(createTextDiv("","filter_list","filters"));
-    for(var i=0;i<filters.length;i++){
-        var filter=filters[i];
+    for(var i=0;i<indexFilters.length;i++){
+        var filter=indexFilters[i];
+        var filterDiv=document.createElement("div");
+        filterDiv.setAttribute("id",filter.name);
+        filterDiv.appendChild(createTextDiv(filter.label,'filterTitle'));
+        var filterGroup=document.createElement(filters.button?"div":"form");
+        if(! filter.description)
+            filter.description=filter.filters;
+            filterDiv.appendChild(filterGroup);
+            container.appendChild(filterDiv);
+        filterGroup.setAttribute("id",filter.name+"Filters");
+        loadFilterHelper(filter,filterGroup)
+
+    }
+}
+function loadMenuFilters(data){
+    filterItems=data;
+    var container=document.getElementById("filtersDiv");
+    container.appendChild(createTextDiv("","filter_list","filters"));
+    for(var i=0;i<menuFilters.length;i++){
+        var filter=menuFilters[i];
         var filterDiv=document.createElement("div");
         filterDiv.setAttribute("id",filter.name);
         filterDiv.appendChild(createTextDiv(filter.label,'filterTitle'));
