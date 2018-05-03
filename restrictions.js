@@ -1,19 +1,19 @@
-var indexFilters = [
+ var indexFilters = [
     {name:"dietary",
-     label:"Dietary Restrictions", 
+     label:"Dietary Restrictions",
      filters:["vegan","vegetarian","pescatarian"],
      filterFunction:dietaryRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:1,
      images:['full-carrot','broc','fish']},
     {name:"meal",
-     label:"Meal", 
+     label:"Meal",
      filters:["breakfast","lunch","dinner","snack"],
      filterFunction:mealRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:1},
     {name:"cost",
-     label:"Cost", 
+     label:"Cost",
      filters:["$","$$","$$$","$$$$"],
      description:["Very Cheap","Cheap","Average","Expensive"],
      filterFunction:costRestrictionsFilterFunction,
@@ -25,26 +25,26 @@ var indexFilters = [
 ]
 var menuFilters = [
     {name:"dietary",
-     label:"Dietary Restrictions", 
+     label:"Dietary Restrictions",
      filters:["vegan","vegetarian","pescatarian"],
      filterFunction:dietaryRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:1,
      images:['full-carrot','broc','fish']},
     {name:"meal",
-     label:"Meal", 
+     label:"Meal",
      filters:["breakfast","lunch","dinner","snack"],
      filterFunction:mealRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:1},
     {name:"allergy",
-     label:"Does not contain", 
+     label:"Does not contain",
      filters:["peanuts","tree nuts","gluten"],
      filterFunction:allergyRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:0},
     {name:"cost",
-     label:"Cost", 
+     label:"Cost",
      filters:["$","$$","$$$","$$$$"],
      description:["Very Cheap","Cheap","Average","Expensive"],
      filterFunction:costRestrictionsFilterFunction,
@@ -57,7 +57,7 @@ var menuFilters = [
 var filterItems;
 var remove = false;
 function dietaryRestrictionsFilterFunction(filterValue,item){
-    return filterValue<item.restrictionLevel;
+    return filterValue<=item.restrictionLevel-1;
 }
 function allergyRestrictionsFilterFunction(filterValue,item){
     return (Math.pow(2,filterValue)&item.allergy)!=0;
@@ -71,7 +71,7 @@ If filter is less than item cost, hide it
 */
 function costRestrictionsFilterFunction(filterValue,item){
 
-    return item.cost>filterValue+1;
+    return item.cost>filterValue;
 }
 function ratingRestrictionsFilterFunction(filterValue,item){
     return filterValue>=item.rating;
@@ -85,7 +85,7 @@ function loadIndexFilters(data){
         var filterDiv=document.createElement("div");
         filterDiv.setAttribute("id",filter.name);
         filterDiv.appendChild(createTextDiv(filter.label,'filterTitle'));
-        var filterGroup=document.createElement(filters.button?"div":"form");
+        var filterGroup=document.createElement(filters.button?"div":"div");
         if(! filter.description)
             filter.description=filter.filters;
             filterDiv.appendChild(filterGroup);
@@ -126,7 +126,7 @@ function resetFilters(){
 function addFilters(forceAdd){
     var activeFilters=document.getElementById("filters");
     if(!this.checked && this.type=="checkbox"){
-        if(forceAdd)
+        if(forceAdd===true)
             return;
         removeFilter(document.getElementsByClassName(this.name)[0],true);
         return;
@@ -148,12 +148,9 @@ function removeFilter(element, apply){
     var filterElement=document.getElementById(element.getAttribute("data-filter-id"))
     filterElement.classList.remove("active-filter");
     filterElement.checked=false;
-    if (filterElement.name == 'dietary'){
-    }
+
     if(apply)
-        remove = true;
         applyFilters();
-        remove = false;
 }
 function createRemoveFilterButton(element){
     var title=element.getAttribute("data-label");
@@ -171,7 +168,6 @@ function createRemoveFilterButton(element){
 }
 
 function loadFilterHelper(filterGroup,form){
-    var j = 0;
 
     for(var i=0;i<filterGroup.filters.length;i++){
 
@@ -212,46 +208,65 @@ function loadFilterHelper(filterGroup,form){
 }
 
 function applyFilters(){
-    filterItems.forEach(filter)
-}
-
-function filter(item){
-    var activeFilters=document.getElementsByClassName("active-filter");
-    var restaurantItem=document.getElementById(item.id);
-    for(var i=0;i<activeFilters.length;i++){
-        if (i == 0){
-            var ratingDiv = restaurantItem.childNodes[2];
-            var value = activeFilters[i].value;
-            if (activeFilters[i].name == 'dietary'){
-                var j=0;
-                var restrictionRating = document.createElement('div');
-                if (value == 0){
-                    for(;j<item.vrating;j++)
-                        restrictionRating.appendChild(createRatingImage("full-carrot"));
-                    for(; j< 5; j++)
-                        restrictionRating.appendChild(createRatingImage("gray-carrot"));
+    var count=1;
+    NEXT_ITEM:for(var n=0;n<filterItems.length;n++){
+        var item=filterItems[n];
+        var activeFilters=document.getElementsByClassName("active-filter");
+        var restaurantItem=document.getElementById(item.id);
+        for(var i=0;i<activeFilters.length;i++){
+            if (i == 0){
+                var ratingDiv = restaurantItem.childNodes[2];
+                var value = activeFilters[i].value;
+                if (activeFilters[i].name == 'dietary'){
+                    var j=0;
+                    var restrictionRating = document.createElement('div');
+                    if (value == 0){
+                        for(;j<item.vrating;j++)
+                            restrictionRating.appendChild(createRatingImage("full-carrot"));
+                        for(; j< 5; j++)
+                            restrictionRating.appendChild(createRatingImage("gray-carrot"));
+                    }
+                    else if (value == 1){
+                        for(;j<item.vegrating;j++)
+                            restrictionRating.appendChild(createRatingImage("broc"));
+                        for(;j< 5; j++)
+                            restrictionRating.appendChild(createRatingImage("gray-broc"));
+                    }
+                    else{
+                        for(;j<item.prating;j++)
+                            restrictionRating.appendChild(createRatingImage("fish"));
+                        for(; j< 5; j++)
+                            restrictionRating.appendChild(createRatingImage("gray-fish"));
+                    }
+                    ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
                 }
-                else if (value == 1){
-                    for(;j<item.vegrating;j++)
-                        restrictionRating.appendChild(createRatingImage("broc"));
-                    for(;j< 5; j++)
-                        restrictionRating.appendChild(createRatingImage("gray-broc"));
-                }
-                else{
-                    for(;j<item.prating;j++)
-                        restrictionRating.appendChild(createRatingImage("fish"));
-                    for(; j< 5; j++)
-                        restrictionRating.appendChild(createRatingImage("gray-fish"));
-                }
-                ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
+            }
+            if (activeFilters[i].filter(+activeFilters[i].value,item)){
+                count+=show(false,restaurantItem,count);
+                continue NEXT_ITEM;
             }
         }
-        if (activeFilters[i].filter(+activeFilters[i].value,item)){
-            restaurantItem.classList.add("hidden");
-            return;
-        }
-    }
-    restaurantItem.classList.remove("hidden");
-    if (remove)
+        count+=show(true,restaurantItem,count);
+
         restaurantItem.childNodes[2].replaceChild(document.createElement('div'), restaurantItem.childNodes[2].childNodes[1]);
+    }
+}
+
+function filterRandomly(){
+    var count=1;
+    for(var i=0;i<filterItems.length;i++){
+            var restaurantItem=document.getElementById(filterItems[i].id);
+            count+=show(Math.random()>.5,restaurantItem,count);
+    }
+}
+
+function show(show,restaurantItem,index){
+    if(show){
+        restaurantItem.classList.remove("hidden");
+        document.getElementById("indexFor"+restaurantItem.id).innerHTML=index;
+        return 1;
+    }
+    else
+        restaurantItem.classList.add("hidden");
+    return 0;
 }

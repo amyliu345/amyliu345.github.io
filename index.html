@@ -29,8 +29,8 @@
 					<div class="permanent-text" id="textFind">Find</div>
 	  				<input type="search" id=searchBar class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
 	  				<div class="permanent-text" id="textNear">Near</div>
-	  				<input type="search" class="search-location" name="q" placeholder="city, zipcode, address...">
-	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value)">
+	  				<input type="search" id="locationBar" class="search-location" name="q" placeholder="city, zipcode, address...">
+	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value,document.getElementById('locationBar').value)">
 	    				<img id="searchIcon" src="graphics/search-icon.png"/>
 	 				</button>
 				</form>
@@ -43,9 +43,10 @@
 		</div>
 		<div class = 'right-col'>
 			<div class="restaurant-list-header">
+						<div id="searchQuery"></div>
 						<div id = sort-container>
 						<span>Sort By: </span>
-	                    <select class = sort-dropdown-content>
+	                    <select class = sort-dropdown-content onchange="search()">
 	                    <option value="opel">Relevance</option>
 	                      <option value="volvo">Most Popular</option>
 	                      <option value="saab">Nearest Distance</option>

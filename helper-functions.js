@@ -49,7 +49,7 @@ function getCostDiv(cost,literal){
         return createTextDiv("$"+cost,"item-cost");
     else{
         var costValue="";
-        for(var n=0;n<cost;n++)
+        for(var n=0;n<=cost;n++)
             costValue+="$";
         return createTextDiv(costValue,"item-cost");
     }

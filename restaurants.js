@@ -10,7 +10,9 @@ function loadRestaurants(){
         restaurant.classList.add("restaurant-item");
 
         var anchor = document.createElement('a');
-        var title=createTextDiv((i + 1) + '. ' + restaurants[i].title,"title");
+        var numberLabel=createTextDiv(i+1,"index","indexFor"+restaurants[i].id);
+        anchor.appendChild(numberLabel);
+        var title=createTextDiv(restaurants[i].title,"title");
         anchor.appendChild(title);
         anchor.setAttribute('href', './menu.html?id='+i);
         anchor.classList.add('link');

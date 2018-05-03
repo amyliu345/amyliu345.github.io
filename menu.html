@@ -27,14 +27,16 @@
 			<img class="logo" src="graphics/vegeTables.png"/>
 			</a>
 			<div class="search-bar">
-                <div class="permanent-text" id="textFind">Find</div>
-                <input type="search" class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
-                <div class="permanent-text" id="textNear">Near</div>
-                <input type="search" class="search-location" name="q" placeholder="city, zipcode, address...">
-                <button type="submit" class="search-button">
-                    <img id="searchIcon" src="graphics/search-icon.png"/>
-                </button>
-            </div>
+				<form onsubmit="return false">
+					<div class="permanent-text" id="textFind">Find</div>
+	  				<input type="search" id=searchBar class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
+	  				<div class="permanent-text" id="textNear">Near</div>
+	  				<input type="search" id="locationBar" class="search-location" name="q" placeholder="city, zipcode, address...">
+	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value,document.getElementById('locationBar').value)">
+	    				<img id="searchIcon" src="graphics/search-icon.png"/>
+	 				</button>
+				</form>
+			 </div>
 		</div>
 		<div class = 'left-col'>
             <form action = './index.html' >
@@ -90,6 +92,7 @@
 		</div>
 		<div class = 'right-col'>
 			<div class = 'menu'>
+				<div id="searchQuery"></div>
 				<span id = menu> Menu </span>
 				<div class="menu-container">
 					<div class="menu-left menu-list" id="menu-list">
