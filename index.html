@@ -46,11 +46,12 @@
 						<div id="searchQuery"></div>
 						<div id = sort-container>
 						<span>Sort By: </span>
-	                    <select class = sort-dropdown-content onchange="search()">
-	                    <option value="opel">Relevance</option>
-	                      <option value="volvo">Most Popular</option>
-	                      <option value="saab">Nearest Distance</option>
-	                      <option value="audi">Highest Rated</option>
+	                    <select class = sort-dropdown-content onchange="sortItems(this.value)">
+	                    <option value="id">Relevance</option>
+	                      <option value="rating">Most Popular</option>
+	                      <option value="distance">Nearest Distance</option>
+	                      <option value="rating">Highest Rated</option>
+	                      <option value="cost">Price</option>
                     	</select>
                     	</div>
 				<div class="showing-results"> Showing 8 of 25 results </div>

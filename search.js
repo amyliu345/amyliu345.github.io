@@ -1,5 +1,10 @@
 
+function sortItems(value){
+    filterItems.sort(function(a,b){console.log(value);return a[value]-b[value];});
+    loadRestaurants();
+    applyFilters();
 
+}
 function search(searchString,locationString){
     resetFilters();
     //show only vegan restaurants
