@@ -348,9 +348,8 @@ button {
 
 #back-to-search:hover {
     background-color: #eeeeee;
-    border: 4px solid #a3d18c;
+    border: 1px solid #a3d18c;
     color: #a3d18c;
-    font-weight: bold;
 }
 
 #menu-select, #reviews-select {
@@ -368,9 +367,13 @@ button {
     padding-bottom: 6px;
 }
 
+#menu-select.selected, #reviews-select.selected {
+    background-color: #a3d18c;
+}
+
 #menu-select:hover, #reviews-select:hover {
     background-color: #eeeeee;
-    border: 4px solid #a3d18c;
+    border: 1px solid #a3d18c;
     color: #a3d18c;
     cursor: pointer;
 }

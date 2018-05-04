@@ -13,6 +13,7 @@ restaurants=[
     {title:"Fresh Fish",rating:3,vrating:2,prating:5, vegrating: 3,cost:2,street:"283 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-237-7126",restrictionLevel:2,mealLevel:0,distance: .4,allergy:1}
 ]
 for(var i=0;i<restaurants.length;i++){
+    console.log(i);
     restaurants[i].id="restaurant"+i;
     restaurants[i].index=i;
 }
