@@ -24,6 +24,7 @@ function createTextDiv(innerHTML,className,id){
         e.innerHTML = innerHTML;
     return e;
 }
+
 function createRatingDiv(rating, vrating,cost,literal){
     var container=document.createElement("div");
     container.classList.add("rating");

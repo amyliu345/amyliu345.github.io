@@ -1,7 +1,10 @@
 
 function sortItems(value){
-    filterItems.sort(function(a,b){console.log(value);return a[value]-b[value];});
-    loadRestaurants();
+    filterItems.sort(function(a,b){return a[value]-b[value];});
+    if(filterItems==restaurants)
+        loadRestaurants();
+    else
+        loadMenu();
     applyFilters();
 
 }
