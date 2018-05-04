@@ -12,7 +12,7 @@ function loadRestaurants(){
         restaurant.classList.add("restaurant-item");
 
         var anchor = document.createElement('a');
-        var numberLabel=createTextDiv(restaurants[i].index+1,"index","indexFor"+restaurants[i].id);
+        var numberLabel=createTextDiv(i+1,"index","indexFor"+restaurants[i].id);
         anchor.appendChild(numberLabel);
         var title=createTextDiv(restaurants[i].title,"title");
         anchor.appendChild(title);
