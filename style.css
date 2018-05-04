@@ -190,8 +190,8 @@ button.active-filter{
 
 .map_to_resturant{
 	padding-bottom: 10px;
-	height: 150px;
 	border-radius: 5px;
+    width: 100%;
 }
 
 .restaurant-item{
@@ -661,6 +661,7 @@ input[type="checkbox"] ~ div {
 
 .item-cost {
 	margin-top: 10px;
+    font-size: 14pt;
 }
 
 .link {
