@@ -706,3 +706,13 @@ input[type="checkbox"] ~ div {
     flex-direction: column;
     width: 200px;
 }
+
+#full-hours, #restaurant-hours{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+#full-hours{
+    align-items: center;
+}

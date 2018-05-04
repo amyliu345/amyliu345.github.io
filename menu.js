@@ -76,3 +76,14 @@ function loadMenu(){
 
 
 }
+
+function showFullHours(){
+    var display = document.getElementById('full-hours').style.display;
+    if (display == 'none'){
+        document.getElementById('full-hours').style.display = 'inherit';
+    }
+    else{
+        document.getElementById('full-hours').style.display = 'none';
+
+    }
+}

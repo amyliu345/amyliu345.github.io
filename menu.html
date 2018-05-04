@@ -69,7 +69,16 @@
                     <img id="restaurant-location-img" src="graphics/placeholder_map.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours">Hours: 8am - 11pm Today</a>
+                    <a id="restaurant-hours" onclick="showFullHours()">Hours: 8am - 11pm Today  &darr;</a>
+                    <div id = 'full-hours' style="display: none">
+                        <span> Monday: 10am - 10pm</span>
+                        <span> Tuesday: 10am - 10pm</span>
+                        <span> Wednesday: 10am - 10pm</span>
+                        <span> Thursday: 10am - 10pm</span>
+                        <span> Friday: 10am - 1am</span>
+                        <span> Saturday: 12pm - 2am</span>
+                        <span> Sunday: 10am - 10pm</span>
+                    </div>
                 </div>
             </div>
             <button id="menu-select" class="selected">Menu</button>
