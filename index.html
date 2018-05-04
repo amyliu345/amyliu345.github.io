@@ -13,7 +13,7 @@
 	<script src="search.js"></script>
 	<script style="text/javascript">
 		function onload(){
-			loadFilters(restaurants);
+			loadIndexFilters(restaurants);
 			loadRestaurants();
 		}
 	</script>
@@ -29,8 +29,8 @@
 					<div class="permanent-text" id="textFind">Find</div>
 	  				<input type="search" id=searchBar class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
 	  				<div class="permanent-text" id="textNear">Near</div>
-	  				<input type="search" class="search-location" name="q" placeholder="city, zipcode, address...">
-	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value)">
+	  				<input type="search" id="locationBar" class="search-location" name="q" placeholder="city, zipcode, address...">
+	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value,document.getElementById('locationBar').value)">
 	    				<img id="searchIcon" src="graphics/search-icon.png"/>
 	 				</button>
 				</form>
@@ -43,16 +43,18 @@
 		</div>
 		<div class = 'right-col'>
 			<div class="restaurant-list-header">
-						<div id = sort-container>
-						<span>Sort By: </span>
-	                    <select class = sort-dropdown-content>
-	                    <option value="opel">Relevance</option>
-	                      <option value="volvo">Most Popular</option>
-	                      <option value="saab">Nearest Distance</option>
-	                      <option value="audi">Highest Rated</option>
-                    	</select>
-                    	</div>
+                <div id="searchQuery"></div>
 				<div class="showing-results"> Showing 8 of 25 results </div>
+                <div id = sort-container>
+				    <span>Sort By: </span>
+	                <select class = sort-dropdown-content onchange="sortItems(this.value)">
+	                   <option value="id">Relevance</option>
+	                   <option value="rating">Most Popular</option>
+	                   <option value="distance">Nearest Distance</option>
+	                   <option value="rating">Highest Rated</option>
+	                   <option value="cost">Price</option>
+                    </select>
+                </div>
 			</div>
 			<div id="restaurantList" class="restaurant-list">
 			</div>

@@ -1,11 +1,28 @@
 
+function sortItems(value){
+    filterItems.sort(function(a,b){console.log(value);return a[value]-b[value];});
+    loadRestaurants();
+    applyFilters();
 
-function search(searchString){
+}
+function search(searchString,locationString){
     resetFilters();
+    //show only vegan restaurants
+
+    var output="";
+    if(searchString)
+        output+=searchString;
+    if(locationString)
+        output+=" near "+locationString;
+    document.getElementById("searchQuery").innerHTML=output;
+
+    filterRandomly();
+    /*
     var words=searchString.toLowerCase().split(" ");
     for(var i=0;i<words.length;i++){
         filterOnWord(words[i]);
     }
+    */
 }
 function filterOnWord(word){
     var index;

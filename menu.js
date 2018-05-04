@@ -21,6 +21,8 @@ function loadMenu(){
         item.appendChild(createImage("menu-image",getFilename(menuItem.title)+".png"));
         var info=document.createElement("div");
         info.classList.add("menu-item-info");
+        var numberLabel=createTextDiv(i+1,"index","indexFor"+menu[i].id);
+        info.appendChild(numberLabel);
         info.appendChild(createTextDiv(menuItem.title,"item-title"));
         info.append(createRatingDiv(menuItem.rating,menuItem.vrating,menuItem.cost,true));
         item.appendChild(info);
@@ -39,8 +41,8 @@ function loadMenu(){
         reviewsDiv = document.createElement("div");
         reviewsDiv.setAttribute("class", "reviews-expansion");
         reviewsDiv.appendChild(createTextDiv("Reviews", "reviews-exp-title", "reviews-exp-title"));
-        reviewsDiv.appendChild(createTextDiv("\"Tastes great and is a very filling dinner! The tamales weren't" 
-                                             +"spicy enough for my taste but there were chili flakes at the table" 
+        reviewsDiv.appendChild(createTextDiv("\"Tastes great and is a very filling dinner! The tamales weren't"
+                                             +"spicy enough for my taste but there were chili flakes at the table"
                                              +"for me to add! Love!\"<br><br> The black beans in this dish really give"
                                              +"it a satisfying flavor. Would order again.\""))
 

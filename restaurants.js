@@ -2,17 +2,21 @@
 
 function loadRestaurants(){
     var list=document.getElementById("restaurantList");
+    while(list.firstChild){
+        list.removeChild(list.firstChild);
+    }
     for(var i=0;i<restaurants.length;i++){
-        restaurants[i].id="restaurant"+i;
         var restaurant=document.createElement("div");
         restaurant.setAttribute("id",restaurants[i].id);
-        restaurant.setAttribute("data-index",i);
+        restaurant.setAttribute("data-index",restaurants[i].index);
         restaurant.classList.add("restaurant-item");
 
         var image = document.createElement('div');
         image.setAttribute('id', 'imageContainer');
         restaurant.appendChild(image);
-        image.appendChild(createImage("image",i+".png"));
+        image.appendChild(createImage("image",restaurants[i].index+".png"));
+        
+        
         // restaurant.appendChild(createRatingDiv(restaurants[i].vrating,false));
         
         var textContainer = document.createElement('div');
@@ -24,9 +28,11 @@ function loadRestaurants(){
         textContainer.appendChild(leftTextContainer);
         
         var anchor = document.createElement('a');
-        var title=createTextDiv((i + 1) + '. ' + restaurants[i].title,"title");
+        var numberLabel=createTextDiv(restaurants[i].index+1,"index","indexFor"+restaurants[i].id);
+        anchor.appendChild(numberLabel);
+        var title=createTextDiv(restaurants[i].title,"title");
         anchor.appendChild(title);
-        anchor.setAttribute('href', './menu.html?id='+i);
+        anchor.setAttribute('href', './menu.html?id='+restaurants[i].index);
         anchor.classList.add('link');
         leftTextContainer.appendChild(anchor);
         
