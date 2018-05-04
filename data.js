@@ -16,14 +16,13 @@ restaurants=[
 
 restaurantMenu=[
     [
-        {title:"Vegan Tamales",rating:3,vrating:3,cost:12.95,restrictionLevel:0,mealLevel:1,allergy:4},
-        {title:"Spinach Salad",rating:2,vrating:4,cost:10.75,restrictionLevel:0,mealLevel:2},
-        {title:"Portobello Burger",rating:4,vrating:5,cost:15.95,restrictionLevel:2,mealLevel:3,allergy:6},
-        {title:"Kale Burrito",rating:3,vrating:2,cost:11.95,restrictionLevel:2,mealLevel:2,allergy:5},
-        {title:"Vegan Tamales",rating:3,vrating:3,cost:12.95,restrictionLevel:0,mealLevel:1,allergy:4},
-        {title:"Spinach Salad",rating:2,vrating:4,cost:10.75,restrictionLevel:0,mealLevel:2},
-        {title:"Portobello Burger",rating:4,vrating:5,cost:15.95,restrictionLevel:0,mealLevel:3,allergy:6},
-        {title:"Kale Burrito",rating:3,vrating:2,cost:11.95,restrictionLevel:1,mealLevel:2,allergy:5}
+        {title:"Vegan Tamales",rating:3,vrating:3, prating:3, vegrating:3, cost:12.95,restrictionLevel:0,mealLevel:1,allergy:4},
+        {title:"Clam Chowder",rating:4,vrating:0, prating:5, vegrating:0, cost:8.95,restrictionLevel:0,mealLevel:1,allergy:4},
+        {title:"BLT",rating:2,vrating:0, prating:0, vegrating:0, cost:10.99,restrictionLevel:0,mealLevel:1,allergy:4},
+        {title:"Spinach Salad",rating:2,vrating:4,prating:3, vegrating:3,cost:10.75,restrictionLevel:0,mealLevel:2},
+        {title:"Portobello Burger",rating:4,vrating:0,prating:3, vegrating:3,cost:15.95,restrictionLevel:2,mealLevel:3,allergy:6},
+        {title:"Kale Burrito",rating:3,vrating:2,prating:3, vegrating:3,cost:11.95,restrictionLevel:2,mealLevel:2,allergy:5},
+        {title:"Cheese Pizza",rating:5,vrating:0,prating:5, vegrating:5,cost:8.25,restrictionLevel:0,mealLevel:2}
     ]
 
 ];
@@ -32,9 +31,10 @@ for(var i=0;i<restaurants.length;i++){
     restaurants[i].id="restaurant"+i;
     restaurants[i].index=i;
 }
-for(var n=0;n<restaurantMenu.length;n++)
+for(var n=0;n<restaurantMenu.length;n++){
     for(var i=0;i<restaurantMenu[n].length;i++){
         restaurantMenu[n][i].id="menu"+i;
         restaurantMenu[n][i].index=i;
     }
+}
 

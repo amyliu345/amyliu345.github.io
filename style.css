@@ -256,7 +256,7 @@ button.active-filter{
 }
 
 #restaurantDetails .distance {
-    font-weight: bold;
+    font-weight: 900;
 }
 
 #restaurantDetails .additional-info {
@@ -272,9 +272,6 @@ button.active-filter{
 	height: 25px;
 }
 
-.cost{
-	font-size: 24px;
-}
 /*.restaurant-item .cost{
 	grid-row: 3;
 	grid-column: 3;
@@ -701,4 +698,10 @@ input[type="checkbox"] ~ div {
 #reviews-exp-title {
 	text-decoration: underline;
 	font-size: 18px;
+}
+
+.menu-right{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
 }

@@ -216,10 +216,8 @@ function applyFilters(){
             addRestrictionRating=activeFilters[i].value;
             break;
         }
-        
     NEXT_ITEM:for(var n=0;n<filterItems.length;n++){
-        var item=filterItems[n];
-        
+        var item=filterItems[n];        
         var restaurantItem=document.getElementById(item.id);
         for(var i=0;i<activeFilters.length;i++){
             if (activeFilters[i].filter(+activeFilters[i].value,item)){
@@ -238,32 +236,45 @@ function applyFilters(){
         } else {
             var value=addRestrictionRating;
             var ratingDiv = restaurantItem.getElementsByClassName("rating")[0];
-        
             var j=0;
             var restrictionRating = document.createElement('div');
             restrictionRating.classList.add("restrictionRating");
             if (value == 0){
-                for(;j<item.vrating;j++)
-                    restrictionRating.appendChild(createRatingImage("full-carrot"));
-                for(; j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-carrot"));
+                if (item.vrating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.vrating;j++)
+                        restrictionRating.appendChild(createRatingImage("full-carrot"));
+                    for(; j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-carrot"));
+                }   
             }
             else if (value == 1){
-                for(;j<item.vegrating;j++)
-                    restrictionRating.appendChild(createRatingImage("broc"));
-                for(;j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-broc"));
+                if (item.vegrating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.vegrating;j++)
+                        restrictionRating.appendChild(createRatingImage("broc"));
+                    for(;j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-broc"));
+                }
             }
             else{
-                for(;j<item.prating;j++)
-                    restrictionRating.appendChild(createRatingImage("fish"));
-                for(; j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-fish"));
+                if (item.prating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.prating;j++)
+                        restrictionRating.appendChild(createRatingImage("fish"));
+                    for(; j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-fish"));
+                }
             }
             ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
         }
 
     }
+    console.log(filterItems);
+    // sortItems(document.getElementsByClassName('sort-dropdown-content').value);
 }
 
 function filterRandomly(){
@@ -277,7 +288,8 @@ function filterRandomly(){
 function show(show,restaurantItem,index){
     if(show){
         restaurantItem.classList.remove("hidden");
-        document.getElementById("indexFor"+restaurantItem.id).innerHTML=index;
+        if (restaurantItem.className != 'menu-item')
+            document.getElementById("indexFor"+restaurantItem.id).innerHTML=index + '.';
         return 1;
     }
     else

@@ -1,10 +1,33 @@
 
 function sortItems(value){
-    filterItems.sort(function(a,b){return a[value]-b[value];});
+    var activeFilters=document.getElementsByClassName("active-filter");
+    var rating = value;
+    if (activeFilters.length > 0){
+        if (activeFilters[0].name == 'dietary'){
+            var restriction = activeFilters[0].value;
+            if (restriction == 0){
+                rating = 'vrating';
+            } 
+            else if (restriction == 1){
+                rating = 'vegrating';
+            }
+            else{
+                rating = 'prating';
+            }
+        }
+    }
+    filterItems.sort(function(a,b){
+        if (value == 'rating'){
+            return 1 / (b[rating] - a[rating]);
+        }else{
+            return a[rating] - b[rating];
+        }
+    });
     if(filterItems==restaurants)
         loadRestaurants();
     else
         loadMenu();
+    // think about when first apply sort then apply filter 
     applyFilters();
 
 }
