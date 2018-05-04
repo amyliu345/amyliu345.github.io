@@ -7,9 +7,10 @@
 	</title>
 	<link rel="stylesheet" href="style.css">
 	<script src="util.js"></script>
+	<script src="data.js"></script>
 	<script src="menu.js"></script>
 
-	<script src="data.js"></script>
+	
 	<script src="helper-functions.js"></script>
 	<script src="restrictions.js"></script>
 	<script src="restaurants.js"></script>
@@ -93,6 +94,15 @@
 		<div class = 'right-col'>
 			<div class = 'menu'>
 				<div id="searchQuery"></div>
+				<div id = sort-container>
+						    <span>Sort By: </span>
+	                        <select class = sort-dropdown-content onchange="sortItems(this.value)">
+	                        <option value="index">Relevance</option>
+	                          <option value="rating">Most Popular</option>
+	                          <option value="rating">Highest Rated</option>
+	                          <option value="cost">Price</option>
+                        	</select>
+                    	</div>
 				<span id = menu> Menu </span>
 				<div class="menu-container">
 					<div class="menu-left menu-list" id="menu-list">

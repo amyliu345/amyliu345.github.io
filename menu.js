@@ -10,13 +10,16 @@ function loadMenu(){
         id=0;
     menu=restaurantMenu[id];
     var container=document.getElementById("menu-list");
+    while(container.firstChild){
+        container.removeChild(container.firstChild);
+    }
 
     for(var i=0;i<menu.length;i++){
-        menu[i].id="menu"+i;
         var menuItem=menu[i];
+        
         var item=document.createElement("div");
         item.setAttribute("id",menu[i].id);
-        item.setAttribute("data-index",i);
+        item.setAttribute("data-index",menu[i].index);
         item.classList.add("menu-item");
         item.appendChild(createImage("menu-image",getFilename(menuItem.title)+".png"));
         var info=document.createElement("div");
@@ -29,7 +32,7 @@ function loadMenu(){
 
         var expansionDiv = document.createElement("div");
         expansionDiv.setAttribute("class", "expansion");
-        expansionDiv.setAttribute("id", "expansion-menu"+i);
+        expansionDiv.setAttribute("id", "expansion-menu"+menu[i].index);
 
         ingredientDiv = document.createElement("div");
         ingredientDiv.setAttribute("class", "ingredients-expansion");
