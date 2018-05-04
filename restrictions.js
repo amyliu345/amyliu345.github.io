@@ -256,7 +256,6 @@ function applyFilters(){
                     restrictionRating.appendChild(createRatingImage("gray-fish"));
             }
             ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
-            console.log("replacing",value);
         }
 
     }
