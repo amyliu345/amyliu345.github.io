@@ -6,6 +6,7 @@
 	</title>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <script src="reviews.js"></script>
 </head>
 <body>
 	<div class = 'grid-container'>
@@ -41,6 +42,14 @@
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/gray-star.png"/>
                         </div>
+                        <div id="carrot-rating">
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/full-carrot.png"/>
+                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
+                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
+                        </div>
+                        
                     </div>
                     <div id="address-contact-info">
                         <a id="street-address">683 Massachusetts Ave.</a>
@@ -73,11 +82,11 @@
                 <h1 id="reviews-header-title">Reviews</h1>
                 <div id="reviews-header-sortby">
                     <h2 id="reviews-header-sortby-title">Sort By:</h2>
-                    <select class = sort-dropdown-content>
-                      <option value="saab">Most Recent</option>
-                      <option value="volvo">Most Helpful</option>
-                      <option value="opel">Rating: High to Low</option>
-                      <option value="audi">Rating: Low to High</option>
+                    <select class = sort-dropdown-content onchange="sortItems(this.value)">
+                      <option value="recent">Most Recent</option>
+                      <option value="helpful">Most Helpful</option>
+                      <option value="rating-high">Rating: High to Low</option>
+                      <option value="rating-low">Rating: Low to High</option>
                     </select>
                 </div>
 
@@ -94,11 +103,11 @@
                             <div id="review-title">Can't Go Wrong!</div>
                             <div id="review-entry-star-rating">
                                 <div id = 'star-rating'>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
                                 </div>
                             </div>
                         </div>
@@ -147,11 +156,11 @@
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
                             </div>
                         </div>
                         </div>
@@ -185,11 +194,11 @@
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
                             </div>
                         </div>
                         </div>
@@ -241,11 +250,11 @@
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="gray-star rating" src="graphics/gray-star.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="gray-star rating" src="graphics/gray-carrot.png"/>
                             </div>
                         </div>
                         </div>
