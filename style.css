@@ -332,7 +332,7 @@ button {
     background-color: #dddddd;
     border: none;
     height: 50px;
-    font-size: 16pt;
+    font-size: 18pt;
     flex-direction: row;
     align-items: center;
     transition-duration: .05s;
@@ -607,6 +607,10 @@ input[type="checkbox"] ~ div {
 	text-decoration: underline;
 	text-decoration-line: 2px;
 	margin-bottom: 20px;
+}
+
+#restaurant-description #ratings-details .full-star {
+    height: 20px;
 }
 
 .menu{
