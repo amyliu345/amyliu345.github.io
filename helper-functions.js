@@ -40,6 +40,7 @@ function createRatingDiv(rating, vrating,cost,literal){
     container.appendChild(starRating);
     var restrictionRating = document.createElement('div');
     restrictionRating.classList.add('restrictionRating');
+    console.log(restrictionRating);
     container.appendChild(restrictionRating);
     container.appendChild(getCostDiv(cost,literal));
 

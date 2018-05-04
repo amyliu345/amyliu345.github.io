@@ -224,19 +224,24 @@ function applyFilters(){
         for(var i=0;i<activeFilters.length;i++){
             if (activeFilters[i].filter(+activeFilters[i].value,item)){
                 count+=show(false,restaurantItem,count);
-                restaurantItem.getElementsByClassName("rating")[0].replaceChild(document.createElement('div'), restaurantItem.getElementsByClassName("restrictionRating")[0]);
+                var newRestrictionRating = document.createElement('div');
+                newRestrictionRating.classList.add("restrictionRating");
+                restaurantItem.getElementsByClassName("rating")[0].replaceChild(newRestrictionRating, restaurantItem.getElementsByClassName("restrictionRating")[0]);
                 continue NEXT_ITEM;
             }
         }
         count+=show(true,restaurantItem,count);
-        if (addRestrictionRating===false)
-            restaurantItem.getElementsByClassName("rating")[0].replaceChild(document.createElement('div'), restaurantItem.getElementsByClassName("restrictionRating")[0]);
-        else{
+        if (addRestrictionRating===false) {
+            var newRestrictionRating = document.createElement('div');
+            newRestrictionRating.classList.add("restrictionRating");
+            restaurantItem.getElementsByClassName("rating")[0].replaceChild(newRestrictionRating, restaurantItem.getElementsByClassName("restrictionRating")[0]);
+        } else {
             var value=addRestrictionRating;
             var ratingDiv = restaurantItem.getElementsByClassName("rating")[0];
         
             var j=0;
             var restrictionRating = document.createElement('div');
+            restrictionRating.classList.add("restrictionRating");
             if (value == 0){
                 for(;j<item.vrating;j++)
                     restrictionRating.appendChild(createRatingImage("full-carrot"));
