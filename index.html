@@ -15,6 +15,9 @@
 		function onload(){
 			loadIndexFilters(restaurants);
 			loadRestaurants();
+			document.getElementById("locationBar").value=Util.getURLParam("locationBar")?Util.getURLParam("locationBar"):"";
+			document.getElementById("searchBar").value=Util.getURLParam("searchBar")?Util.getURLParam("searchBar"):"";
+			document.getElementById("searchButton").click();
 		}
 	</script>
 </head>
@@ -30,7 +33,7 @@
 	  				<input type="search" id=searchBar class="search-food" name="q" placeholder="lunch, Thai food, cheap eats...">
 	  				<div class="permanent-text" id="textNear">Near</div>
 	  				<input type="search" id="locationBar" class="search-location" name="q" placeholder="city, zipcode, address...">
-	  				<button  class="search-button" onclick="search(document.getElementById('searchBar').value,document.getElementById('locationBar').value)">
+	  				<button id=searchButton class="search-button" onclick="search(document.getElementById('searchBar').value,document.getElementById('locationBar').value)">
 	    				<img id="searchIcon" src="graphics/search-icon.png"/>
 	 				</button>
 				</form>
@@ -47,14 +50,14 @@
 						<div id = sort-container>
 						    <span>Sort By: </span>
 	                        <select class = sort-dropdown-content onchange="sortItems(this.value)">
-	                        <option value="index">Relevance</option>
+							  <option value="index">Relevance</option>
 	                          <option value="rating">Most Popular</option>
 	                          <option value="distance">Nearest Distance</option>
 	                          <option value="rating">Highest Rated</option>
 	                          <option value="cost">Price</option>
                         	</select>
                     	</div>
-				<div class="showing-results"> Showing 8 of 25 results </div>
+				<div class="showing-results"> Showing <span id="numberOfResults">8</span> of 25 results </div>
 			</div>
 			<div id="restaurantList" class="restaurant-list">
 			</div>

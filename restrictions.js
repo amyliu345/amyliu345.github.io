@@ -216,10 +216,10 @@ function applyFilters(){
             addRestrictionRating=activeFilters[i].value;
             break;
         }
-        
+
     NEXT_ITEM:for(var n=0;n<filterItems.length;n++){
         var item=filterItems[n];
-        
+
         var restaurantItem=document.getElementById(item.id);
         for(var i=0;i<activeFilters.length;i++){
             if (activeFilters[i].filter(+activeFilters[i].value,item)){
@@ -234,7 +234,7 @@ function applyFilters(){
         else{
             var value=addRestrictionRating;
             var ratingDiv = restaurantItem.childNodes[2];
-        
+
             var j=0;
             var restrictionRating = document.createElement('div');
             if (value == 0){
@@ -259,6 +259,7 @@ function applyFilters(){
         }
 
     }
+    document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function filterRandomly(){
@@ -267,6 +268,7 @@ function filterRandomly(){
             var restaurantItem=document.getElementById(filterItems[i].id);
             count+=show(Math.random()>.5,restaurantItem,count);
     }
+    document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function show(show,restaurantItem,index){
