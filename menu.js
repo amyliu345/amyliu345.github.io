@@ -24,8 +24,8 @@ function loadMenu(){
         item.appendChild(createImage("menu-image",getFilename(menuItem.title)+".png"));
         var info=document.createElement("div");
         info.classList.add("menu-item-info");
-        var numberLabel=createTextDiv(i+1,"index","indexFor"+menu[i].id);
-        info.appendChild(numberLabel);
+        //var numberLabel=createTextDiv(i+1,"index","indexFor"+menu[i].id);
+        //info.appendChild(numberLabel);
         info.appendChild(createTextDiv(menuItem.title,"item-title"));
         info.append(createRatingDiv(menuItem.rating,menuItem.vrating,menuItem.cost,true));
         item.appendChild(info);
@@ -75,4 +75,15 @@ function loadMenu(){
     return menu;
 
 
+}
+
+function showFullHours(){
+    var display = document.getElementById('full-hours').style.display;
+    if (display == 'none'){
+        document.getElementById('full-hours').style.display = 'inherit';
+    }
+    else{
+        document.getElementById('full-hours').style.display = 'none';
+
+    }
 }

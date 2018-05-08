@@ -6,6 +6,7 @@
 	</title>
 	<link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <script src="reviews.js"></script>
 </head>
 <body>
 	<div class = 'grid-container'>
@@ -48,6 +49,7 @@
                             <img class="full-star rating" src="graphics/gray-carrot.png"/>
                             <img class="full-star rating" src="graphics/gray-carrot.png"/>
                         </div>
+                        
                     </div>
                     <div id="address-contact-info">
                         <a id="street-address">683 Massachusetts Ave.</a>
@@ -63,9 +65,9 @@
                 </div>
             </div>
             <form action = './menu.html'>
-                <button type = 'submit' id="menu-select">Menu</button>
+                <button type = 'submit' id="menu-select"><a>Menu</a></button>
             </form>
-            <button id="reviews-select" style="background-color:#a3d18c">Reviews</button>
+            <button id="reviews-select" class="selected">Reviews</button>
             <div id="top-review-section">
                 <div id="top-review-header">
                     <h2>Top Review for You:</h2>
@@ -80,11 +82,11 @@
                 <h1 id="reviews-header-title">Reviews</h1>
                 <div id="reviews-header-sortby">
                     <h2 id="reviews-header-sortby-title">Sort By:</h2>
-                    <select class = sort-dropdown-content>
-                      <option value="volvo">Most Helpful</option>
-                      <option value="saab">Most Recent</option>
-                      <option value="opel">Rating: High to Low</option>
-                      <option value="audi">Rating: Low to High</option>
+                    <select class = sort-dropdown-content onchange="sortItems(this.value)">
+                      <option value="recent">Most Recent</option>
+                      <option value="helpful">Most Helpful</option>
+                      <option value="rating-high">Rating: High to Low</option>
+                      <option value="rating-low">Rating: Low to High</option>
                     </select>
                 </div>
 
@@ -99,22 +101,14 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                             <div id="review-title">Can't Go Wrong!</div>
-                            <div id="dish-title">Vegan Tamales</div>
                             <div id="review-entry-star-rating">
                                 <div id = 'star-rating'>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
-                                <img class="full-star rating" src="graphics/full-star.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
+                                <img class="full-star rating" src="graphics/full-carrot.png"/>
                                 </div>
-                            <div id = 'carrot-rating'>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            </div>
                             </div>
                         </div>
                         <div id="review-body">Excellent service, excellent food, excellent experience! I eat here with my boyfriend every week, and I have never found a single dish that wasn't amazing! The staff is extremely friendly, and the restaurant is instagram picturesque. I cannot recommend Tom's enough! You need to go!</div>
@@ -133,7 +127,6 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                         <div id="review-title">Hidden Gem</div>
-                        <div id="dish-title">Seafood Stew</div>
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
                             <img class="full-star rating" src="graphics/full-star.png"/>
@@ -141,13 +134,6 @@
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/gray-star.png"/>
-                            </div>
-                            <div id = 'carrot-rating'>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
                             </div>
                         </div>
                     </div>
@@ -167,27 +153,29 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                         <div id="review-title">Really Liked It!</div>
-                        <div id="dish-title">Kimchi Beef Noodle Soup</div>
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            </div>
-                            <div id = 'carrot-rating'>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
+                                <img class="full-star rating" src="graphics/broc.png"/>
                             </div>
                         </div>
                         </div>
                     </div>
-                    <div id="review-body">I ordered the Kimchi Beef Noodle Soup which was around $8 and I really liked it! When it came out it was still bubbling. You're supposed to crack the egg they give you on top of it right when it comes out but I didn't. The sides are good. I tried the fish, beansprouts, and tofu and I liked them all. You get your own rice pot as well which is pretty awesome. My sister said I smelled like sausage or pepperoni when I came home so you'll probably smell but it's totally worth it. Can't wait to go back!</div>
+                    <div id="review-body">
+                        I ordered the Kimchi Beef Noodle Soup which was around $8 and I really liked it! When it came out it was still bubbling. You're supposed to crack the egg they give you on top of it right when it comes out but I didn't. The sides are good. I tried
+                        
+                        <div id="see-more">
+                            <input type="checkbox" id="see-more-id">
+                            <label for="see-more-id"></label>
+                            <div id="more-text">
+                                the fish, beansprouts, and tofu and I liked them all. You get your own rice pot as well which is pretty awesome. My sister said I smelled like sausage or pepperoni when I came home so you'll probably smell but it's totally worth it. Can't wait to go back!
+                            </div>
+                        </div>
+                    </div>
                     <div id="review-entry-footer">
                         <div id="review-entry-author">Toni Foster</div>
                         <div id="review-entry-date">August 8, 2017</div>
@@ -203,22 +191,14 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                         <div id="review-title">Disappointed...</div>
-                        <div id="dish-title">Tofu Soup</div>
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            </div>
-                            <div id = 'carrot-rating'>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
+                                <img class="full-star rating" src="graphics/fish.png"/>
                             </div>
                         </div>
                         </div>
@@ -239,7 +219,6 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                         <div id="review-title">Unlimited Banchan!</div>
-                        <div id="dish-title">Tofu Soup</div>
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
@@ -248,13 +227,6 @@
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/full-star.png"/>
-                            </div>
-                            <div id = 'carrot-rating'>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
                             </div>
                         </div>
                         </div>
@@ -275,22 +247,14 @@
                     <div id="review-entry-text">
                         <div id="review-entry-header">
                         <div id="review-title">Tasty Tofu</div>
-                        <div id="dish-title">Tofu Stew</div>
                         <div id="review-entry-star-rating">
                         <div id="review-entry-star-rating">
                             <div id = 'star-rating'>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="full-star rating" src="graphics/full-star.png"/>
-                            <img class="gray-star rating" src="graphics/gray-star.png"/>
-                            </div>
-                            <div id = 'carrot-rating'>
                                 <img class="full-star rating" src="graphics/full-carrot.png"/>
                                 <img class="full-star rating" src="graphics/full-carrot.png"/>
                                 <img class="full-star rating" src="graphics/full-carrot.png"/>
                                 <img class="full-star rating" src="graphics/full-carrot.png"/>
-                                <img class="full-star rating" src="graphics/gray-carrot.png"/>
+                                <img class="gray-star rating" src="graphics/gray-carrot.png"/>
                             </div>
                         </div>
                         </div>
@@ -301,9 +265,7 @@
                         <div id="review-entry-date">February 2, 2016</div>
                     </div>
                     </div>
-                </div>
-                  
-                
+                </div>   
             </div>
 		</div>
 	</div>

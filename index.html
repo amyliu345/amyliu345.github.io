@@ -5,6 +5,7 @@
 
 	</title>
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	<script src="util.js"></script>
 	<script src="data.js"></script>
 	<script src="helper-functions.js"></script>
@@ -47,17 +48,17 @@
 		<div class = 'right-col'>
 			<div class="restaurant-list-header">
 						<div id="searchQuery"></div>
+						<div class="showing-results"> Showing <span id="numberOfResults">8</span> of 25 results </div>
 						<div id = sort-container>
 						    <span>Sort By: </span>
 	                        <select class = sort-dropdown-content onchange="sortItems(this.value)">
 							  <option value="index">Relevance</option>
-	                          <option value="rating">Most Popular</option>
+	                          <!--<option value="rating">Most Popular</option>-->
 	                          <option value="distance">Nearest Distance</option>
 	                          <option value="rating">Highest Rated</option>
 	                          <option value="cost">Price</option>
                         	</select>
                     	</div>
-				<div class="showing-results"> Showing <span id="numberOfResults">8</span> of 25 results </div>
 			</div>
 			<div id="restaurantList" class="restaurant-list">
 			</div>

@@ -6,6 +6,7 @@
 
 	</title>
 	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
 	<script src="util.js"></script>
 	<script src="data.js"></script>
 	<script src="menu.js"></script>
@@ -57,13 +58,6 @@
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/gray-star.png"/>
                         </div>
-                        <div id="carrot-rating">
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                        </div>
                     </div>
                     <div id="address-contact-info">
                         <a id="street-address">683 Massachusetts Ave.</a>
@@ -75,10 +69,19 @@
                     <img id="restaurant-location-img" src="graphics/placeholder_map.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours">Hours: 8am - 11pm Today</a>
+                    <a id="restaurant-hours" onclick="showFullHours()">Hours: 8am - 11pm Today  &darr;</a>
+                    <div id = 'full-hours' style="display: none">
+                        <span> Monday: 10am - 10pm</span>
+                        <span> Tuesday: 10am - 10pm</span>
+                        <span> Wednesday: 10am - 10pm</span>
+                        <span> Thursday: 10am - 10pm</span>
+                        <span> Friday: 10am - 1am</span>
+                        <span> Saturday: 12pm - 2am</span>
+                        <span> Sunday: 10am - 10pm</span>
+                    </div>
                 </div>
             </div>
-            <button id="menu-select" style="background-color: #a3d18c">Menu</button>
+            <button id="menu-select" class="selected">Menu</button>
             <form action = './review.html'>
             	<button id="reviews-select" type = 'submit'>Reviews</button>
         	</form>
@@ -97,7 +100,7 @@
 				<div id = sort-container>
 						    <span>Sort By: </span>
 	                        <select class = sort-dropdown-content onchange="sortItems(this.value)">
-	                          <option value="rating">Most Popular</option>
+	                          <!--<option value="rating">Most Popular</option>-->
 	                          <option value="rating">Highest Rated</option>
 	                          <option value="cost">Price</option>
                         	</select>

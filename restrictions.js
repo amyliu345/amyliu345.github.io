@@ -224,36 +224,52 @@ function applyFilters(){
         for(var i=0;i<activeFilters.length;i++){
             if (activeFilters[i].filter(+activeFilters[i].value,item)){
                 count+=show(false,restaurantItem,count);
-                restaurantItem.childNodes[2].replaceChild(document.createElement('div'), restaurantItem.childNodes[2].childNodes[1]);
+                var newRestrictionRating = document.createElement('div');
+                newRestrictionRating.classList.add("restrictionRating");
+                restaurantItem.getElementsByClassName("rating")[0].replaceChild(newRestrictionRating, restaurantItem.getElementsByClassName("restrictionRating")[0]);
                 continue NEXT_ITEM;
             }
         }
         count+=show(true,restaurantItem,count);
-        if (addRestrictionRating===false)
-            restaurantItem.childNodes[2].replaceChild(document.createElement('div'), restaurantItem.childNodes[2].childNodes[1]);
-        else{
+        if (addRestrictionRating===false) {
+            var newRestrictionRating = document.createElement('div');
+            newRestrictionRating.classList.add("restrictionRating");
+            restaurantItem.getElementsByClassName("rating")[0].replaceChild(newRestrictionRating, restaurantItem.getElementsByClassName("restrictionRating")[0]);
+        } else {
             var value=addRestrictionRating;
-            var ratingDiv = restaurantItem.childNodes[2];
-
+            var ratingDiv = restaurantItem.getElementsByClassName("rating")[0];
             var j=0;
             var restrictionRating = document.createElement('div');
+            restrictionRating.classList.add("restrictionRating");
             if (value == 0){
-                for(;j<item.vrating;j++)
-                    restrictionRating.appendChild(createRatingImage("full-carrot"));
-                for(; j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-carrot"));
+                if (item.vrating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.vrating;j++)
+                        restrictionRating.appendChild(createRatingImage("full-carrot"));
+                    for(; j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-carrot"));
+                }
             }
             else if (value == 1){
-                for(;j<item.vegrating;j++)
-                    restrictionRating.appendChild(createRatingImage("broc"));
-                for(;j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-broc"));
+                if (item.vegrating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.vegrating;j++)
+                        restrictionRating.appendChild(createRatingImage("broc"));
+                    for(;j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-broc"));
+                }
             }
             else{
-                for(;j<item.prating;j++)
-                    restrictionRating.appendChild(createRatingImage("fish"));
-                for(; j< 5; j++)
-                    restrictionRating.appendChild(createRatingImage("gray-fish"));
+                if (item.prating == 0){
+                    show(false, restaurantItem, 0);
+                }else{
+                    for(;j<item.prating;j++)
+                        restrictionRating.appendChild(createRatingImage("fish"));
+                    for(; j< 5; j++)
+                        restrictionRating.appendChild(createRatingImage("gray-fish"));
+                }
             }
             ratingDiv.replaceChild(restrictionRating, ratingDiv.childNodes[1]);
         }
@@ -274,7 +290,8 @@ function filterRandomly(){
 function show(show,restaurantItem,index){
     if(show){
         restaurantItem.classList.remove("hidden");
-        document.getElementById("indexFor"+restaurantItem.id).innerHTML=index;
+        if (restaurantItem.className != 'menu-item')
+            document.getElementById("indexFor"+restaurantItem.id).innerHTML=index + '.';
         return 1;
     }
     else
