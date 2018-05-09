@@ -18,10 +18,7 @@
      description:["Very Cheap","Cheap","Average","Expensive"],
      filterFunction:costRestrictionsFilterFunction,
      button:1,
-     mutuallyExclusive:1},
-    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
+     mutuallyExclusive:1}
 ]
 var menuFilters = [
     {name:"dietary",
@@ -43,17 +40,6 @@ var menuFilters = [
      filterFunction:allergyRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:0}
-    //  ,
-    // {name:"cost",
-    //  label:"Cost",
-    //  filters:["$","$$","$$$","$$$$"],
-    //  description:["Very Cheap","Cheap","Average","Expensive"],
-    //  filterFunction:costRestrictionsFilterFunction,
-    //  button:1,
-    //  mutuallyExclusive:1},
-    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
 ]
 var filterItems;
 var remove = false;
@@ -251,6 +237,7 @@ function applyFilters(){
             var j=0;
             var restrictionRating = document.createElement('div');
             restrictionRating.classList.add("restrictionRating");
+            restrictionRating.setAttribute('title', 'Restriction Rating');
             if (value == 0){
                 if (item.vrating == 0){
                     show(false, restaurantItem, 0);
