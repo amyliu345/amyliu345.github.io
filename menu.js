@@ -99,27 +99,6 @@ function loadMenu(){
 
 }
 
-//     var menu_items = document.getElementsByClassName("menu-item");
-
-//     for (var i = 0; i < menu_items.length; i++) {
-//         menu_items[i].addEventListener("click", menuItemHandler, false);
-//     }
-
-//     function menuItemHandler(){
-//         var expansionDiv = document.getElementById("expansion-"+this.id);
-//         if (expansionDiv.style.display === "flex"){
-//             expansionDiv.style.display = "none";
-//         }
-//         else {
-//             expansionDiv.style.display = "flex";
-//         }
-//     }
-
-//     return menu;
-
-
-// }
-
 function showFullHours(){
     var display = document.getElementById('full-hours').style.display;
     if (display == 'none'){

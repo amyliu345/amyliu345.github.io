@@ -501,6 +501,7 @@ button {
     border-bottom: 1px solid #cccccc;
     display: flex;
     flex-direction: row;
+    height: 180px;
 }
 
 #review-entry-header {
@@ -558,6 +559,10 @@ button {
     padding-bottom: 10px;
 }
 
+#review-body4 {
+    padding-bottom: 30px;
+}
+
 #review-entry-pro-pic {
     display: flex;
     align-items: flex-start;
@@ -574,6 +579,36 @@ button {
 #review-entry-footer [type="checkbox"] {
     position: absolute;
     left:  -100000px;   
+}
+
+#review-see-more {
+	position: relative;
+    margin-left: 670px;
+    margin-top: -52px;
+    cursor:pointer;
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+#review-see-more:hover{
+	color: #a3d18c;
+}
+
+#review-expanded {
+	display: none;
+	padding-bottom:30px;
+}
+
+#review-see-less {
+	display: none;
+	position: relative;
+    margin-left: 740px;
+    margin-top: -52px;
+    padding-bottom: 10px;
+    cursor:pointer;
+    text-decoration: underline;
+}
+#review-see-less:hover{
+	color: #a3d18c;
 }
 
 label:after {
