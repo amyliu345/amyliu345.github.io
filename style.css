@@ -88,7 +88,7 @@ body{
 .restaurant-list-header{
 	font-size: 16px;
 	display: flex;
-	align-items: left;
+	align-items: center;
 	justify-content: space-between;
 	text-align: left;
 	margin: 20px;
