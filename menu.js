@@ -27,12 +27,15 @@ function loadMenu(){
         //var numberLabel=createTextDiv(i+1,"index","indexFor"+menu[i].id);
         //info.appendChild(numberLabel);
         info.appendChild(createTextDiv(menuItem.title,"item-title"));
-        info.append(createRatingDiv(menuItem.rating,menuItem.vrating,menuItem.cost,true));
+        info.appendChild(createRatingDiv(menuItem.rating,menuItem.vrating,menuItem.cost,true));
+
         item.appendChild(info);
+        item.appendChild(createTextDiv("See More...","menu-see-more", "maximizer"+menu[i].index));
+
 
         var expansionDiv = document.createElement("div");
         expansionDiv.setAttribute("class", "expansion");
-        expansionDiv.setAttribute("id", "expansion-menu"+menu[i].index);
+        expansionDiv.setAttribute("id", "expansion"+menu[i].index);
 
         ingredientDiv = document.createElement("div");
         ingredientDiv.setAttribute("class", "ingredients-expansion");
@@ -51,31 +54,71 @@ function loadMenu(){
 
         expansionDiv.appendChild(reviewsDiv);
         item.appendChild(expansionDiv);
+        item.appendChild(createTextDiv("See Less","menu-see-less", "minimizer"+menu[i].index));
+
 
         container.appendChild(item);
     }
 
 
-    var menu_items = document.getElementsByClassName("menu-item");
+    var see_more_items = document.getElementsByClassName("menu-see-more");
 
-    for (var i = 0; i < menu_items.length; i++) {
-        menu_items[i].addEventListener("click", menuItemHandler, false);
+    for (var i = 0; i < see_more_items.length; i++) {
+        see_more_items[i].addEventListener("click", seeMoreHandler, false);
     }
 
-    function menuItemHandler(){
-        var expansionDiv = document.getElementById("expansion-"+this.id);
-        if (expansionDiv.style.display === "flex"){
-            expansionDiv.style.display = "none";
-        }
-        else {
-            expansionDiv.style.display = "flex";
-        }
+    function seeMoreHandler(){
+        var menuItemNumber = parseInt(this.id[this.id.length-1]);
+        var expansionDiv = document.getElementById("expansion"+menuItemNumber);
+        expansionDiv.style.display = "flex";
+        this.style.display = "none";
+
+        var minDiv = document.getElementById("minimizer"+menuItemNumber);
+        minDiv.style.display = "block";
+    }
+
+
+    var see_less_items = document.getElementsByClassName("menu-see-less");
+
+    for (var i = 0; i < see_less_items.length; i++) {
+        see_less_items[i].addEventListener("click", seeLessHandler, false);
+    }
+
+    function seeLessHandler(){
+        var menuItemNumber = parseInt(this.id[this.id.length-1]);
+        var expansionDiv = document.getElementById("expansion"+menuItemNumber);
+        expansionDiv.style.display = "none";
+        this.style.display = "none";
+
+        var maxDiv = document.getElementById("maximizer"+menuItemNumber);
+        maxDiv.style.display = "block";
     }
 
     return menu;
 
 
 }
+
+//     var menu_items = document.getElementsByClassName("menu-item");
+
+//     for (var i = 0; i < menu_items.length; i++) {
+//         menu_items[i].addEventListener("click", menuItemHandler, false);
+//     }
+
+//     function menuItemHandler(){
+//         var expansionDiv = document.getElementById("expansion-"+this.id);
+//         if (expansionDiv.style.display === "flex"){
+//             expansionDiv.style.display = "none";
+//         }
+//         else {
+//             expansionDiv.style.display = "flex";
+//         }
+//     }
+
+//     return menu;
+
+
+// }
 
 function showFullHours(){
     var display = document.getElementById('full-hours').style.display;

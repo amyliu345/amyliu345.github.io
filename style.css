@@ -645,6 +645,28 @@ input[type="checkbox"] ~ div {
 	flex: 0 1 60%;
 }
 
+.menu-see-more {
+	margin-left: auto;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.menu-see-more:hover {
+	color: #a3d18c;
+}
+
+.menu-see-less {
+	margin-top: 20px;
+	margin-left: auto;
+	text-decoration: underline;
+	cursor: pointer;
+	display: none;
+}
+
+.menu-see-less:hover {
+	color: #a3d18c;
+}
+
+
 .menu-image {
 	width: 120px;
 	height: 120px;
