@@ -808,19 +808,25 @@ a#restaurant-hours:hover {
 }
 
 #bruh{
-    margin-bottom: -10px;
-    display: flex;
+	display: flex;
     align-items: center;
 }
 
 #sub{
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    padding-left: 8px;
+    padding-top: 3px;
 }
 
 #subs{
-    margin-top: -25px;
+    margin-top: -15px;
     margin-bottom: -10px;
     display: none;
+}
+
+#sort-container{
+	margin-top: 10px;
+	margin-left: 10px;
 }
