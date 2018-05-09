@@ -68,15 +68,29 @@
                     <img id="restaurant-location-img" src="graphics/map_zoomed.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours" onclick="showFullHours()">Hours: 8am - 11pm Today  &darr;</a>
+                    <a id="restaurant-hours" onclick="showFullHours()"><strong>Hours:</strong> Today: 8am - 11pm&nbsp;&darr;</a>
                     <div id = 'full-hours' style="display: none">
-                        <span> Monday: 10am - 10pm</span>
-                        <span> Tuesday: 10am - 10pm</span>
-                        <span> Wednesday: 10am - 10pm</span>
-                        <span> Thursday: 10am - 10pm</span>
-                        <span> Friday: 10am - 1am</span>
-                        <span> Saturday: 12pm - 2am</span>
-                        <span> Sunday: 10am - 10pm</span>
+                        <span> ______________<br><strong>Weekly Hours:</strong> </span>
+                        <div id = 'hours-container'>
+                        <div id="days-of-week">
+                            <a> Monday:<br></a>
+                            <a> Tuesday:<br></a>
+                            <a> Wednesday:<br></a>
+                            <a> Thursday:<br></a>
+                            <a> Friday:<br></a>
+                            <a> Saturday:<br></a>
+                            <a> Sunday:</a>
+                        </div>
+                        <div id="hours-of-day">
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 1am</span>
+                            <span> 12pm - 2am</span>
+                            <span> 10am - 10pm</span>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>

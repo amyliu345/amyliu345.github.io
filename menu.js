@@ -3,8 +3,7 @@ function loadMenu(){
     var id=+Util.getURLParam("id");
     restaurant=restaurants[id];
     document.getElementById("restaurant-title").innerHTML=restaurant.title;
-    document.getElementById("street-address").innerHTML=restaurant.street;
-    document.getElementById("city-state").innerHTML=restaurant.cityState;
+    document.getElementById("street-address").innerHTML=restaurant.street + "<br>" + restaurant.cityState;
     document.getElementById("phone-number").innerHTML=restaurant.phoneNumber;
     if(id >= restaurantMenu.length)
         id=0;
