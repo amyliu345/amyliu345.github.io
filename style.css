@@ -125,8 +125,6 @@ body{
     background-color: #f3f3f3;
 }
 
-
-
 .restaurant-item.hidden,.menu-item.hidden{
 	display: none;
 }
@@ -416,7 +414,6 @@ button {
 }
 
 #address-contact-info:hover {
-    color: blue;
     cursor: pointer;
 }
 

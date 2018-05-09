@@ -42,18 +42,9 @@
                             <img class="full-star rating" src="graphics/full-star.png"/>
                             <img class="full-star rating" src="graphics/gray-star.png"/>
                         </div>
-                        <div id="carrot-rating">
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/full-carrot.png"/>
-                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                            <img class="full-star rating" src="graphics/gray-carrot.png"/>
-                        </div>
-                        
                     </div>
                     <div id="address-contact-info">
-                        <a id="street-address">683 Massachusetts Ave.</a>
-                        <a id="city-state">Cambridge, MA 02139</a>
+                        <a id="street-address" href="https://www.google.com/maps/place/683+Massachusetts+Ave,+Cambridge,+MA+02139/@42.3660339,-71.1085746,17z/data=!3m1!4b1!4m5!3m4!1s0x89e37751413535d9:0x8c9a8b72cbc99c8d!8m2!3d42.3660339!4d-71.1041972">683 Massachusetts Ave.<br>Cambridge, MA 02139</a>
                         <a id="phone-number">(617) 238-7926</a>
                     </div>
                 </div>
@@ -61,7 +52,16 @@
                     <img id="restaurant-location-img" src="graphics/map_zoomed.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours">Hours: 8am - 11pm Today</a>
+                    <a id="restaurant-hours" onclick="showFullHours()">Hours: 8am - 11pm Today  &darr;</a>
+                    <div id = 'full-hours' style="display: none">
+                        <span> Monday: 10am - 10pm</span>
+                        <span> Tuesday: 10am - 10pm</span>
+                        <span> Wednesday: 10am - 10pm</span>
+                        <span> Thursday: 10am - 10pm</span>
+                        <span> Friday: 10am - 1am</span>
+                        <span> Saturday: 12pm - 2am</span>
+                        <span> Sunday: 10am - 10pm</span>
+                    </div>
                 </div>
             </div>
             <form action = './menu.html'>
