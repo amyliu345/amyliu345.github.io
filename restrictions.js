@@ -81,6 +81,10 @@ function ratingRestrictionsFilterFunction(filterValue,item){
 function loadIndexFilters(data){
     filterItems=data;
     var container=document.getElementById("filtersDiv");
+    var filterByHeader = document.createElement('a');
+    filterByHeader.classList.add("filterHeader");
+    filterByHeader.innerHTML = "Filter By:";
+    container.appendChild(filterByHeader);
     container.appendChild(createTextDiv("","filter_list","filters"));
     for(var i=0;i<indexFilters.length;i++){
         var filter=indexFilters[i];
@@ -100,6 +104,10 @@ function loadIndexFilters(data){
 function loadMenuFilters(data){
     filterItems=data;
     var container=document.getElementById("filtersDiv");
+    var filterByHeader = document.createElement('a');
+    filterByHeader.classList.add("filterHeader");
+    filterByHeader.innerHTML = "Filter By:";
+    container.appendChild(filterByHeader);
     container.appendChild(createTextDiv("","filter_list","filters"));
     for(var i=0;i<menuFilters.length;i++){
         var filter=menuFilters[i];

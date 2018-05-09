@@ -166,6 +166,9 @@ body{
 .index{
 	display: inline-flex;
 }
+#filtersDiv {
+    
+}
 .filter-label{
 	text-transform: capitalize;
 }
@@ -178,6 +181,11 @@ body{
 	padding-left: 8px;
 	padding-right: 8px;
 	font-size: 16px;
+}
+
+#dietary, #meal, #cost {
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 button.active-filter{
@@ -308,6 +316,11 @@ button.active-filter{
 .filterTitle{
 	font-weight: bold;
 	font-size: 20px;
+}
+
+.filterHeader {
+    font-weight: bold;
+	font-size: 24px;
 }
 
 .vegRating, .starRating {
