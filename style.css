@@ -485,7 +485,7 @@ button {
     justify-content: flex-start;
 }
 
-.vegan-review-entry, .general-review-entry, .pesc-review-entry, .vegetarian-review-entry{
+.vegan-review-entry, .general-review-entry, .pescetarian-review-entry, .vegetarian-review-entry{
     padding-bottom: 15px;
     padding-top: 15px;
     border-bottom: 1px solid #cccccc;
