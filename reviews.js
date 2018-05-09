@@ -23,3 +23,21 @@ function sortItems(value) {
         parent.insertBefore(elem, parent.firstChild);
     }
 }
+
+function filterItems(value){
+    var reviews = [];
+    for (var i = 0; i < recentOrder.length; i++) {
+        var id = "review-entry".concat(i.toString());
+        
+        reviews = reviews.concat(document.getElementById(id));
+    }
+    reviews.forEach(elem =>{
+      elem.style.display = 'flex';
+    })
+    for (var i = 0; i < reviews.length; i++){
+      if (!reviews[i].className.includes(value)){
+        reviews[i].style.display = 'none';
+      }
+    }
+  return;
+}

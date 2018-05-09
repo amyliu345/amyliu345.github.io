@@ -465,18 +465,18 @@ button {
 }
 
 #reviews-header-title {
-    width: 100%;
+    width: 40%;
     padding-left: 20px;
 }
 
-#reviews-header-sortby {
+.reviews-header-sortby {
     width: 50%;
     color: #999999;
     display: flex;
     align-items: center;
 }
 
-#reviews-header-sortby-title{
+.reviews-header-sortby-title{
     padding-right: 10px;
 }
 
@@ -485,7 +485,7 @@ button {
     justify-content: flex-start;
 }
 
-.review-entry {
+.vegan-review-entry, .general-review-entry, .pesc-review-entry, .vegetarian-review-entry{
     padding-bottom: 15px;
     padding-top: 15px;
     border-bottom: 1px solid #cccccc;
@@ -738,3 +738,8 @@ input[type="checkbox"] ~ div {
 #full-hours{
     align-items: center;
 }
+
+/*#reviewFilters{
+    display: flex;
+    flex-direction: column;
+}*/
