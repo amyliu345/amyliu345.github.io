@@ -39,7 +39,7 @@ var menuFilters = [
      mutuallyExclusive:1},
     {name:"allergy",
      label:"Does not contain",
-     filters:["peanuts","tree nuts","gluten"],
+     filters:["peanuts","tree nuts","gluten","egg","soy"],
      filterFunction:allergyRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:0}
@@ -61,6 +61,7 @@ function dietaryRestrictionsFilterFunction(filterValue,item){
     return filterValue<=item.restrictionLevel-1;
 }
 function allergyRestrictionsFilterFunction(filterValue,item){
+
     return (Math.pow(2,filterValue)&item.allergy)!=0;
 }
 function mealRestrictionsFilterFunction(filterValue,item){
@@ -276,7 +277,8 @@ function applyFilters(){
         }
 
     }
-    document.getElementById("numberOfResults").innerHTML=count-1;
+    if(document.getElementById("numberOfResults"))
+        document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function filterRandomly(){
@@ -285,7 +287,8 @@ function filterRandomly(){
             var restaurantItem=document.getElementById(filterItems[i].id);
             count+=show(Math.random()>.5,restaurantItem,count);
     }
-    document.getElementById("numberOfResults").innerHTML=count-1;
+    if(document.getElementById("numberOfResults"))
+        document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function show(show,restaurantItem,index){
