@@ -501,7 +501,6 @@ button {
     border-bottom: 1px solid #cccccc;
     display: flex;
     flex-direction: row;
-    height: 180px;
 }
 
 #review-entry-header {
@@ -610,6 +609,9 @@ button {
 #review-see-less:hover{
 	color: #a3d18c;
 }
+
+
+
 
 label:after {
     font-size: 11pt;
