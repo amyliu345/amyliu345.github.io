@@ -152,7 +152,12 @@ function createRemoveFilterButton(element){
     var title=element.getAttribute("data-label");
     var group=element.getAttribute("name");
     var removeFilterButton=document.createElement("button");
-    removeFilterButton.innerHTML="X "+title;
+    if (title == 'peanuts' || title == 'eggs' || title == 'soy' || title =='gluten' || title == 'tree nuts'){
+        removeFilterButton.innerHTML="X no "+title;
+    }
+    else{
+        removeFilterButton.innerHTML="X "+title;
+    }
     removeFilterButton.setAttribute("id","remove"+title);
     removeFilterButton.classList.add(group);
     removeFilterButton.setAttribute("value",element.value);
