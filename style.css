@@ -752,7 +752,7 @@ input[type="checkbox"] ~ div {
     flex-direction: row;
 }
 
-a#restaurant-hours:hover {
+b#restaurant-hours:hover {
     color: #a3d18c;
 }
 
