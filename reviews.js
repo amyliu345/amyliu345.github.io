@@ -76,3 +76,40 @@ function showFullHours(){
 
     }
 }
+
+function expandReview(){
+
+    var see_more = document.getElementById("review-see-more");
+    see_more.addEventListener("click", seeMoreHandler, false);
+
+    function seeMoreHandler(){
+      console.log("see more");
+        var expansionDiv = document.getElementById("review-expanded");
+        expansionDiv.style.display = "flex";
+        this.style.display = "none";
+
+        var minDiv = document.getElementById("review-see-less");
+        minDiv.style.display = "block";
+
+        var reviewDiv = document.getElementById("review-entry4");
+
+        reviewDiv.style.height = "340px";
+    }
+
+
+    var see_less = document.getElementById("review-see-less");
+    see_less.addEventListener("click", seeLessHandler, false);
+
+    function seeLessHandler(){
+        var expansionDiv = document.getElementById("review-expanded");
+        expansionDiv.style.display = "none";
+        this.style.display = "none";
+
+        var maxDiv = document.getElementById("review-see-more");
+        maxDiv.style.display = "block";
+        var reviewDiv = document.getElementById("review-entry4");
+
+        reviewDiv.style.height = "180px";
+
+    }
+}
