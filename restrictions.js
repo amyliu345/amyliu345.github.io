@@ -18,10 +18,7 @@
      description:["Very Cheap","Cheap","Average","Expensive"],
      filterFunction:costRestrictionsFilterFunction,
      button:1,
-     mutuallyExclusive:1},
-    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
+     mutuallyExclusive:1}
 ]
 var menuFilters = [
     {name:"dietary",
@@ -43,17 +40,6 @@ var menuFilters = [
      filterFunction:allergyRestrictionsFilterFunction,
      button:0,
      mutuallyExclusive:0}
-    //  ,
-    // {name:"cost",
-    //  label:"Cost",
-    //  filters:["$","$$","$$$","$$$$"],
-    //  description:["Very Cheap","Cheap","Average","Expensive"],
-    //  filterFunction:costRestrictionsFilterFunction,
-    //  button:1,
-    //  mutuallyExclusive:1},
-    // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
-    //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
-    //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
 ]
 var filterItems;
 var remove = false;
@@ -166,7 +152,12 @@ function createRemoveFilterButton(element){
     var title=element.getAttribute("data-label");
     var group=element.getAttribute("name");
     var removeFilterButton=document.createElement("button");
-    removeFilterButton.innerHTML="X "+title;
+    if (title == 'peanuts' || title == 'eggs' || title == 'soy' || title =='gluten' || title == 'tree nuts'){
+        removeFilterButton.innerHTML="X no "+title;
+    }
+    else{
+        removeFilterButton.innerHTML="X "+title;
+    }
     removeFilterButton.setAttribute("id","remove"+title);
     removeFilterButton.classList.add(group);
     removeFilterButton.setAttribute("value",element.value);
@@ -251,6 +242,7 @@ function applyFilters(){
             var j=0;
             var restrictionRating = document.createElement('div');
             restrictionRating.classList.add("restrictionRating");
+            restrictionRating.setAttribute('title', 'Restriction Rating');
             if (value == 0){
                 if (item.vrating == 0){
                     show(false, restaurantItem, 0);

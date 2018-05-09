@@ -88,7 +88,7 @@ body{
 .restaurant-list-header{
 	font-size: 16px;
 	display: flex;
-	align-items: left;
+	align-items: center;
 	justify-content: space-between;
 	text-align: left;
 	margin: 20px;
@@ -181,6 +181,7 @@ body{
 	padding-left: 8px;
 	padding-right: 8px;
 	font-size: 16px;
+    cursor: pointer;
 }
 
 #dietary, #meal, #cost {
@@ -558,6 +559,10 @@ button {
     padding-bottom: 10px;
 }
 
+#review-body4 {
+    padding-bottom: 30px;
+}
+
 #review-entry-pro-pic {
     display: flex;
     align-items: flex-start;
@@ -575,6 +580,39 @@ button {
     position: absolute;
     left:  -100000px;   
 }
+
+#review-see-more {
+	position: relative;
+    margin-left: 670px;
+    margin-top: -52px;
+    cursor:pointer;
+    padding-bottom: 10px;
+    text-decoration: underline;
+}
+#review-see-more:hover{
+	color: #a3d18c;
+}
+
+#review-expanded {
+	display: none;
+	padding-bottom:30px;
+}
+
+#review-see-less {
+	display: none;
+	position: relative;
+    margin-left: 740px;
+    margin-top: -52px;
+    padding-bottom: 10px;
+    cursor:pointer;
+    text-decoration: underline;
+}
+#review-see-less:hover{
+	color: #a3d18c;
+}
+
+
+
 
 label:after {
     font-size: 11pt;
@@ -771,19 +809,25 @@ b#restaurant-hours:hover {
 }
 
 #bruh{
-    margin-bottom: -10px;
-    display: flex;
+	display: flex;
     align-items: center;
 }
 
 #sub{
-    width: 40px;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
+    padding-left: 8px;
+    padding-top: 3px;
 }
 
 #subs{
-    margin-top: -25px;
+    margin-top: -15px;
     margin-bottom: -10px;
     display: none;
+}
+
+#sort-container{
+	margin-top: 10px;
+	margin-left: 10px;
 }

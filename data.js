@@ -5,7 +5,7 @@ Green Garden's image would be 2.png
 restaurants=[
     {title:"Tom's Bistro",rating:4,vrating:3,prating:4, vegrating: 4,cost:0,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:0,mealLevel:1,distance: .1,allergy:2},
     {title:"Veggie Place",rating:2,vrating:1,prating:2, vegrating: 3,cost:1,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:1,mealLevel:2,distance: .3,allergy:0},
-    {title:"Green Garden",rating:3,vrating:2,prating:3, vegrating: 5,cost:4,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:0,mealLevel:1,distance: 1.1,allergy:0},
+    {title:"Green Garden",rating:3,vrating:2,prating:3, vegrating: 5,cost:0,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:0,mealLevel:1,distance: 1.1,allergy:0},
     {title:"Life Alive",rating:2,vrating:5, prating:3, vegrating: 4,cost:2,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:0,mealLevel:4,distance: .1,allergy:0},
     {title:"Santiago's Kitchen",rating:5,vrating:4, prating:3, vegrating: 3,cost:3,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:1,mealLevel:5,distance: .6,allergy:0},
     {title:"Steak House",rating:4,vrating:1, prating:1, vegrating: 4,cost:3,street:"683 Massachusetts Ave",cityState:"Cambridge, Ma 02139",phoneNumber:"(617)-235-7126",restrictionLevel:100,mealLevel:6,distance: 2.1,allergy:7},

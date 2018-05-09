@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <script src="reviews.js"></script>
 </head>
-<body>
+<body onload="expandReview()">
 	<div class = 'grid-container'>
 		<div class = 'header-item'>
             <a href = './index.html'>
@@ -52,7 +52,7 @@
                     <img id="restaurant-location-img" src="graphics/map_zoomed.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours" onclick="showFullHours()"><strong>Hours:</strong> Today: 8am - 11pm&nbsp;&darr;</a>
+                    <a id="restaurant-hours" onclick="showFullHours()"><strong>Hours:</strong> Today: 10am - 10pm&nbsp;&darr;</a>
                     <div id = 'full-hours' style="display: none">
                         <span> ______________<br><strong>Weekly Hours:</strong> </span>
                         <div id = 'hours-container'>
@@ -106,19 +106,13 @@
                 <div class="reviews-header-sortby">
                     <h2 class="reviews-header-sortby-title">Filter By:</h2>
                     <input type='radio' id='vegan' style = 'cursor: pointer;' name = 'filter' onclick="filterItems('vegan')"/>
-                    <img class="full-star rating" style = 'padding:10px;' src="graphics/full-carrot.png"/ title = 'Vegan Rating'>
+                    <img class="full-star rating" style = 'padding-right:10px;padding-left: 5px;' src="graphics/full-carrot.png"/ title = 'Vegan Rating'>
                     <input type='radio' id = 'vegetarian' style = 'cursor: pointer;' name = 'filter' onclick="filterItems('vegetarian')">
-                    <img class="full-star rating" style = 'padding:10px;' src="graphics/broc.png" title = 'Vegetarian Rating'/>
+                    <img class="full-star rating" style = 'padding-right:10px;padding-left: 5px;' src="graphics/broc.png" title = 'Vegetarian Rating'/>
                     <input type='radio' id= 'pescetarian' style = 'cursor: pointer;'  name = 'filter' onclick="filterItems('pescetarian')">
-                    <img class="full-star rating" style = 'padding:5px;' src="graphics/fish.png" title = 'Pescetarian Rating'/>
-                    <input type='radio' id= 'general' style = 'cursor: pointer;' name = 'filter' onclick="filterItems('general')">
-                    <img class="full-star rating" style = 'padding:5px;' src="graphics/full-star.png" title = 'General Rating'/>
-<!--                     <select class = sort-dropdown-content onchange="filterItems(this.value)">
-                      <option value="recent"><img></option>
-                      <option value="helpful">Most Helpful</option>
-                      <option value="rating-high">Rating: High to Low</option>
-                      <option value="rating-low">Rating: Low to High</option>
-                    </select>    -->          
+                    <img class="full-star rating" style = 'padding-right:10px;padding-left: 5px;' src="graphics/fish.png" title = 'Pescetarian Rating'/>
+                    <input type='radio' id= 'general' style = 'cursor: pointer;padding-left: 5px;' name = 'filter' onclick="filterItems('general')">
+                    <img class="full-star rating" style = 'padding-right:10px;padding-left: 5px;' src="graphics/full-star.png" title = 'General Rating'/>      
                 </div>
             </div>
             <div id="reviews-container">
@@ -198,13 +192,13 @@
                     <div id="review-body">
                         I ordered the Kimchi Beef Noodle Soup which was around $8 and I really liked it! When it came out it was still bubbling. You're supposed to crack the egg they give you on top of it right when it comes out but I didn't. The sides are good. I tried
                         
-                        <div id="see-more">
+<!--                         <div id="see-more">
                             <input type="checkbox" id="see-more-id">
                             <label for="see-more-id"></label>
-                            <div id="more-text">
+                            <div id="more-text"> -->
                                 the fish, beansprouts, and tofu and I liked them all. You get your own rice pot as well which is pretty awesome. My sister said I smelled like sausage or pepperoni when I came home so you'll probably smell but it's totally worth it. Can't wait to go back!
-                            </div>
-                        </div>
+                            <!-- </div>
+                        </div> -->
                     </div>
                     <div id="review-entry-footer">
                         <div id="review-entry-author">Toni Foster</div>
@@ -261,7 +255,14 @@
                         </div>
                         </div>
                     </div>
-                    <div id="review-body">The only restaurant I frequent enough to the point where the owner knows me by face and knows exactly what my family and I order each time. I only go for the jjigae and occasionally order the bulgogi. They are called a tofu restaurant for a reason. They have the best korean tofu soups in town. Very flavorful broth loaded with silken tofu. Served in a bubbling stone bowl- drop in that raw egg for a perfectly poached egg. The menu has several jjigaes so you get to order the soup with any base of your choosing (pork, kimchee, seafood). You also choose the spice level. Served with unlimited banchan and you have an amazing spread of korean food before you. After going to korea- I realized this restaurant is not "authentic" but I don't care. The jjgaes are bomb- I'll have it anytime. Now the other items on the menu are a hit or miss. The five star rating is only based on the soups. The bulgogi is different from other Korean restaurants- in a good way. They use thin strips of pork which allow for the sauce to soak in and the meat to be tender. It served on a hot plate so it stays hot. This place serves a great warm homemade feeling meal. Servers are constantly changing but they are always super attentive and never fail to ask if you want a refill on banchan.</div>
+                    <div id="review-body4">The only restaurant I frequent enough to the point where the owner knows me by face and knows exactly what my family and I order each time. I only go for the jjigae and occasionally order the bulgogi. They are called a tofu restaurant for a reason. They have the best korean tofu soups in town. Very flavorful broth loaded with silken tofu. Served in a bubbling stone bowl- drop in that raw egg for a perfectly poached egg. The menu has several jjigaes so you get to order the soup with any base of your choosing (pork, kimchee, seafood). You also choose the spice level. </div>
+
+                    <div id="review-see-more"> See More...</div>
+
+
+                    <div id="review-expanded">Served with unlimited banchan and you have an amazing spread of korean food before you. After going to korea- I realized this restaurant is not "authentic" but I don't care. The jjgaes are bomb- I'll have it anytime. Now the other items on the menu are a hit or miss. The five star rating is only based on the soups. The bulgogi is different from other Korean restaurants- in a good way. They use thin strips of pork which allow for the sauce to soak in and the meat to be tender. It served on a hot plate so it stays hot. This place serves a great warm homemade feeling meal. Servers are constantly changing but they are always super attentive and never fail to ask if you want a refill on banchan.</div>
+                    <div id="review-see-less"> See Less</div>
+
                     <div id="review-entry-footer">
                         <div id="review-entry-author">Nikki South</div>
                         <div id="review-entry-date">December 13, 2016</div>
