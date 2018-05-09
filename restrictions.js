@@ -39,17 +39,18 @@ var menuFilters = [
      mutuallyExclusive:1},
     {name:"allergy",
      label:"Does not contain",
-     filters:["peanuts","tree nuts","gluten"],
+     filters:["peanuts","tree nuts","gluten","egg","soy"],
      filterFunction:allergyRestrictionsFilterFunction,
      button:0,
-     mutuallyExclusive:0},
-    {name:"cost",
-     label:"Cost",
-     filters:["$","$$","$$$","$$$$"],
-     description:["Very Cheap","Cheap","Average","Expensive"],
-     filterFunction:costRestrictionsFilterFunction,
-     button:1,
-     mutuallyExclusive:1},
+     mutuallyExclusive:0}
+    //  ,
+    // {name:"cost",
+    //  label:"Cost",
+    //  filters:["$","$$","$$$","$$$$"],
+    //  description:["Very Cheap","Cheap","Average","Expensive"],
+    //  filterFunction:costRestrictionsFilterFunction,
+    //  button:1,
+    //  mutuallyExclusive:1},
     // {name:"rating",label:"Avg. Customer Rating", filters:["<img class='filterRating' src='graphics/full-star.png' />","<img src='graphics/full-star.png' class='filterRating' />",
     //     "<img src='graphics/full-star.png' class='filterRating' />","<img src='graphics/full-star.png'  class='filterRating'/>",
     //     "<img src='graphics/full-star.png'  class='filterRating'/>"],description:["1 star","2 star","3 star","4 star"],filterFunction:ratingRestrictionsFilterFunction,button:1,mutuallyExclusive:1}
@@ -60,6 +61,7 @@ function dietaryRestrictionsFilterFunction(filterValue,item){
     return filterValue<=item.restrictionLevel-1;
 }
 function allergyRestrictionsFilterFunction(filterValue,item){
+
     return (Math.pow(2,filterValue)&item.allergy)!=0;
 }
 function mealRestrictionsFilterFunction(filterValue,item){
@@ -275,7 +277,8 @@ function applyFilters(){
         }
 
     }
-    document.getElementById("numberOfResults").innerHTML=count-1;
+    if(document.getElementById("numberOfResults"))
+        document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function filterRandomly(){
@@ -284,7 +287,8 @@ function filterRandomly(){
             var restaurantItem=document.getElementById(filterItems[i].id);
             count+=show(Math.random()>.5,restaurantItem,count);
     }
-    document.getElementById("numberOfResults").innerHTML=count-1;
+    if(document.getElementById("numberOfResults"))
+        document.getElementById("numberOfResults").innerHTML=count-1;
 }
 
 function show(show,restaurantItem,index){

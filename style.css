@@ -462,18 +462,18 @@ button {
 }
 
 #reviews-header-title {
-    width: 100%;
+    width: 40%;
     padding-left: 20px;
 }
 
-#reviews-header-sortby {
+.reviews-header-sortby {
     width: 50%;
     color: #999999;
     display: flex;
     align-items: center;
 }
 
-#reviews-header-sortby-title{
+.reviews-header-sortby-title{
     padding-right: 10px;
 }
 
@@ -482,7 +482,7 @@ button {
     justify-content: flex-start;
 }
 
-.review-entry {
+.vegan-review-entry, .general-review-entry, .pesc-review-entry, .vegetarian-review-entry{
     padding-bottom: 15px;
     padding-top: 15px;
     border-bottom: 1px solid #cccccc;
@@ -730,8 +730,33 @@ input[type="checkbox"] ~ div {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-}
-
-#full-hours{
     align-items: center;
 }
+
+#hours-container{
+    padding-top: 4px;
+    display: flex;
+    flex-direction: row;
+}
+
+a#restaurant-hours:hover {
+    color: #a3d18c;
+}
+
+#days-of-week {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#hours-of-day {
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/*#reviewFilters{
+    display: flex;
+    flex-direction: column;
+}*/

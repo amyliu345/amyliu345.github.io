@@ -52,15 +52,29 @@
                     <img id="restaurant-location-img" src="graphics/map_zoomed.png">
                 </div>
                 <div id="restaurant-hours">
-                    <a id="restaurant-hours" onclick="showFullHours()">Hours: 8am - 11pm Today  &darr;</a>
+                    <a id="restaurant-hours" onclick="showFullHours()"><strong>Hours:</strong> Today: 8am - 11pm&nbsp;&darr;</a>
                     <div id = 'full-hours' style="display: none">
-                        <span> Monday: 10am - 10pm</span>
-                        <span> Tuesday: 10am - 10pm</span>
-                        <span> Wednesday: 10am - 10pm</span>
-                        <span> Thursday: 10am - 10pm</span>
-                        <span> Friday: 10am - 1am</span>
-                        <span> Saturday: 12pm - 2am</span>
-                        <span> Sunday: 10am - 10pm</span>
+                        <span> ______________<br><strong>Weekly Hours:</strong> </span>
+                        <div id = 'hours-container'>
+                        <div id="days-of-week">
+                            <a> Monday:<br></a>
+                            <a> Tuesday:<br></a>
+                            <a> Wednesday:<br></a>
+                            <a> Thursday:<br></a>
+                            <a> Friday:<br></a>
+                            <a> Saturday:<br></a>
+                            <a> Sunday:</a>
+                        </div>
+                        <div id="hours-of-day">
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 10pm</span>
+                            <span> 10am - 1am</span>
+                            <span> 12pm - 2am</span>
+                            <span> 10am - 10pm</span>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -80,8 +94,8 @@
 		<div class = 'right-col'>
             <div id="reviews-header">
                 <h1 id="reviews-header-title">Reviews</h1>
-                <div id="reviews-header-sortby">
-                    <h2 id="reviews-header-sortby-title">Sort By:</h2>
+                <div class="reviews-header-sortby">
+                    <h2 class="reviews-header-sortby-title">Sort By:</h2>
                     <select class = sort-dropdown-content onchange="sortItems(this.value)">
                       <option value="recent">Most Recent</option>
                       <option value="helpful">Most Helpful</option>
@@ -89,12 +103,28 @@
                       <option value="rating-low">Rating: Low to High</option>
                     </select>
                 </div>
-
+                <div class="reviews-header-sortby">
+                    <h2 class="reviews-header-sortby-title">Filter By:</h2>
+                    <input type='radio' id='vegan' name = 'filter' onclick="filterItems('vegan')"/>
+                    <img class="full-star rating" style = 'padding:10px;cursor: pointer;' src="graphics/full-carrot.png"/>
+                    <input type='radio' id = 'vegetarian' name = 'filter' onclick="filterItems('vegetarian')">
+                    <img class="full-star rating" style = 'padding:10px;cursor: pointer;' src="graphics/broc.png"/>
+                    <input type='radio' id= 'pescetarian' name = 'filter' onclick="filterItems('pesc')">
+                    <img class="full-star rating" style = 'padding:5px;cursor: pointer;' src="graphics/fish.png"/>
+                    <input type='radio' id= 'pescetarian' name = 'filter' onclick="filterItems('general')">
+                    <img class="full-star rating" style = 'padding:5px;cursor: pointer;' src="graphics/full-star.png"/>
+<!--                     <select class = sort-dropdown-content onchange="filterItems(this.value)">
+                      <option value="recent"><img></option>
+                      <option value="helpful">Most Helpful</option>
+                      <option value="rating-high">Rating: High to Low</option>
+                      <option value="rating-low">Rating: Low to High</option>
+                    </select>    -->          
+                </div>
             </div>
             <div id="reviews-container">
                 
                 
-                <div class = "review-entry" id="review-entry0">
+                <div class = "vegan-review-entry" id="review-entry0">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/rachel.jpg">
                     </div>
@@ -120,7 +150,7 @@
                 </div>
                 
                 
-                <div class = "review-entry" id="review-entry1">
+                <div class = "general-review-entry" id="review-entry1">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/james.jpg">
                     </div>
@@ -146,7 +176,7 @@
                 </div>
                 
                 
-                <div class = "review-entry" id="review-entry2">
+                <div class = "vegetarian-review-entry" id="review-entry2">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/toni.jpg">
                     </div>
@@ -184,7 +214,7 @@
                 </div>
                 
                 
-                <div class = "review-entry" id="review-entry3">
+                <div class = "pesc-review-entry" id="review-entry3">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/jiwoo.jpg">
                     </div>
@@ -212,7 +242,7 @@
                 </div>
                 
                 
-                <div class = "review-entry" id="review-entry4">
+                <div class = "general-review-entry" id="review-entry4">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/nikki.jpg">
                     </div>
@@ -240,7 +270,7 @@
                 </div>
                 
                 
-                <div class = "review-entry" id="review-entry5">
+                <div class = "vegan-review-entry" id="review-entry5">
                     <div id="review-entry-pro-pic">
                         <img src="graphics/simone.jpg">
                     </div>
