@@ -1,4 +1,5 @@
 var menu;
+var sub = false;
 function loadMenu(){
     var id=+Util.getURLParam("id");
     restaurant=restaurants[id];
@@ -39,7 +40,7 @@ function loadMenu(){
         ingredientDiv = document.createElement("div");
         ingredientDiv.setAttribute("class", "ingredients-expansion");
         ingredientDiv.appendChild(createTextDiv("Ingredients", "ingredients-exp-title", "ingredients-exp-title"));
-        ingredientDiv.appendChild(createTextDiv("Corn Flour <br> Water <br> Salt <br> Onion <br> Black Beans <br> Vegetable Broth"))
+        ingredientDiv.appendChild(createTextDiv("<div id='bruh'> Corn Flour <img src='graphics/s.png' id='sub' title='Substitutions Available' onclick='subClick()'></div><div id='subs'><ul><li>Wheat Flour</li><li>White Flour</li></ul></div> Water <br> Salt <br> Onion <br> Black Beans <br> Vegetable Broth"))
 
         expansionDiv.appendChild(ingredientDiv);
 
@@ -123,9 +124,21 @@ function showFullHours(){
     var display = document.getElementById('full-hours').style.display;
     if (display == 'none'){
         document.getElementById('full-hours').style.display = 'inherit';
+        document.getElementById('top-review-section').style.display = 'none';
     }
     else{
         document.getElementById('full-hours').style.display = 'none';
+        document.getElementById('top-review-section').style.display = 'inherit';
+    }
+}
 
+function subClick(){
+    if (!sub){
+        document.getElementById('subs').style.display = 'inherit';
+        sub = true;
+    }
+    else{
+        document.getElementById('subs').style.display = 'none';  
+        sub = false;   
     }
 }
