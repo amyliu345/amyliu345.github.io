@@ -747,6 +747,7 @@ a#restaurant-hours:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: 42%;
 }
 
 #hours-of-day {
